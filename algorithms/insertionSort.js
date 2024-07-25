@@ -1,26 +1,28 @@
+// In insertion sort, we try to create a sorted array on the left side of the current index, gradually adding elements inside it on every iteration.
+
 const insertionSort = ({ array }) => {
 
-    // Mapping through the array    
-    for (let i = 0; i < array.length; i++) {
+    // Mapping through the array - we will create a sorted array to the left of the index. Since an array of one element is already a sorted array, we start from the second element (index = 1)
+    for (let index = 1; index < array.length; index++) {
 
-        // Flag to check if array is sorted - assume it is al
-        var isSorted = true
+        // Get value at current index and store it in a variable
+        let currentValue = array[index]
 
-        // Since we are placing the heaviest element at the correct position in every outer loop iteration, we only need to loop through array length - i elements.
-        for (let j = 0; j < array.length - i; j++) {
+        // Get the index to the element previous to the current index
+        let j = index - 1
 
-            // If current element is heavier than next element, swap them. Set the sorted flag to false.
-            if (array[j] > array[j + 1]) {
-                [array[j], array[j + 1]] = [array[j + 1], array[j]]
-                isSorted = false
-            }
+        // We need to put the current element in the correct position in the sorted array on the left. So we start at the end of the sorted array & compare the value to the current value. If value at j is greater than current Value, shift it to the right.
+
+        while (j >= 0 && array[j] > currentValue) {
+            array[j + 1] = array[j]
+            j--
         }
 
-        // If no swaps were made, array is already sorted and we can return
-        if (isSorted) {
-            return array
-        }
+        // The correct position of the current element is j+1. Rewrite the element with the new value to be added.
+        array[j + 1] = currentValue
+
     }
+
     return array
 }
 

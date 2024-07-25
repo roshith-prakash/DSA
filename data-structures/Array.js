@@ -5,7 +5,6 @@ const search = (arr, element) => {
             return i
         }
     }
-
     return false
 }
 
@@ -32,6 +31,7 @@ const insertion = (arr, element, position) => {
 const deletion = (arr, element) => {
     let index
 
+    // Search the loop for element
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] == element) {
             index = i
@@ -39,15 +39,20 @@ const deletion = (arr, element) => {
         }
     }
 
+    // If index not found, return false to indicate element is not present
     if (isNaN(index)) {
         return false
     }
 
+    // From the index of the element, pull back elements to 1 position behind current position (rewrites the element.)
     for (let i = index; i < (arr.length); i++) {
         arr[i] = arr[i + 1]
     }
 
+    // Pop so that last index is not null/undefined
     arr.pop()
+
+    // Return the array
     return arr
 }
 
@@ -107,6 +112,8 @@ const rightRotation = (arr, requiredRotations) => {
 
 // Generate possible subarrays of the array
 const generateSubArrays = (arr) => {
+
+    // Parent array - will contain subarrays
     const fullArr = []
 
     const printSubArray = (arr, start, end) => {
@@ -122,12 +129,15 @@ const generateSubArrays = (arr) => {
         // Create a sub array from start index to end index
         // Increment start index once process is completed
         else {
+            // Create a new array
             let newArr = []
 
+            // Push all elements from start index to end index
             for (let i = start; i < end; i++) {
                 newArr.push(arr[i])
             }
 
+            // Push the created array to the Parent array
             if (newArr.length > 0) {
                 fullArr.push(newArr)
             }
@@ -138,11 +148,12 @@ const generateSubArrays = (arr) => {
     }
 
     printSubArray(arr, 0, 0)
-    return (fullArr)
+    return (fullArr.sort())
 }
 
 
 const arr = [1, 2, 3, 4]
+
 console.log("Search : ", search(arr, 3))
 console.log("Insertion : ", insertion(arr, 6, 2))
 console.log("Deletion : ", deletion(arr, 6))
