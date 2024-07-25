@@ -1,3 +1,4 @@
+// Node to be used inside linked list.
 class Node {
     constructor(value, next) {
         this.value = value

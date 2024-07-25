@@ -1,4 +1,9 @@
 // Requires a sorted array
+// Binary Search divides the array to be searched in half with each iteration and thus allows a faster search time. We find the middle of the array. If element is at the middle, element is found. If element is smaller, rerun the program with array[start to mid]. If element is larfer, rerun the program with array[mid to end]. Continue till element is found or only a single element is present in array.
+
+// Time complexity : O (log n)
+// Created with recursion
+
 const binarySearch = ({ arr, start, end, element }) => {
     // Find middle of array
     const mid = Math.floor((start + end) / 2)

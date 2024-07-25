@@ -1,9 +1,13 @@
+// In bubble sort, in every iteration we push the heaviest element to the end of the current array and reduce the size of the "to be sorted" array by 1.
+
+// Time complexity : O (n^2)
+
 const bubbleSort = ({ array }) => {
 
     // Mapping through the array    
     for (let i = 0; i < array.length; i++) {
 
-        // Flag to check if array is sorted - assume it is al
+        // Flag to check if array is sorted - assume it is already sorted.
         var isSorted = true
 
         // Since we are placing the heaviest element at the correct position in every outer loop iteration, we only need to loop through array length - i elements.

@@ -151,9 +151,10 @@ const generateSubArrays = (arr) => {
     return (fullArr.sort())
 }
 
-
+// Array
 const arr = [1, 2, 3, 4]
 
+// Performin Operations
 console.log("Search : ", search(arr, 3))
 console.log("Insertion : ", insertion(arr, 6, 2))
 console.log("Deletion : ", deletion(arr, 6))
