@@ -18,10 +18,12 @@ const traversal = (arr) => {
 // Insert at position
 const insertion = (arr, element, position) => {
 
+    // Start form end of array and shift elements to one position right.
     for (let i = arr.length - 1; i >= position; i--) {
         arr[i + 1] = arr[i]
     }
 
+    // Add element at required position.
     arr[position] = element
 
     return arr
@@ -58,14 +60,19 @@ const deletion = (arr, element) => {
 
 // Reverse the array
 const reverse = (arr) => {
+    // Create a temp array
     const reverseArr = []
 
+    //Index for temp array 
     let index = 0
+
+    // Add elements in the temp array in reverse order.
     for (let i = arr.length - 1; i >= 0; i--) {
         reverseArr[index] = arr[i]
         index = index + 1
     }
 
+    // Replace original array with reverse array
     arr = reverseArr
 
     return arr
@@ -76,14 +83,20 @@ const reverse = (arr) => {
 const leftRotation = (arr, requiredRotations) => {
     let rotations = 0
 
+    // While rotations are less than required rotations
     while (rotations < requiredRotations) {
+        // Take first element of array in a variable
         let first = arr[0]
 
+        // Shift all elements to one position on the left.
         for (let i = 0; i < arr.length; i++) {
             arr[i] = arr[i + 1]
         }
+
+        // Add the first element to the end of the array
         arr[arr.length - 1] = first
 
+        // increment rotation count.
         rotations++
     }
 
@@ -95,15 +108,20 @@ const leftRotation = (arr, requiredRotations) => {
 const rightRotation = (arr, requiredRotations) => {
     let rotations = 0
 
+    // While rotation count is less than required rotations
     while (rotations < requiredRotations) {
+        // Take last element in the variable
         let last = arr[arr.length - 1]
 
+        // Shift all elements to 1 position right
         for (let i = arr.length - 1; i >= 0; i--) {
             arr[i] = arr[i - 1]
         }
 
+        // Add the last element at the start of the array
         arr[0] = last
 
+        // Increase rotation count
         rotations++
     }
 
@@ -154,7 +172,7 @@ const generateSubArrays = (arr) => {
 // Array
 const arr = [1, 2, 3, 4]
 
-// Performin Operations
+// Performing Operations
 console.log("Search : ", search(arr, 3))
 console.log("Insertion : ", insertion(arr, 6, 2))
 console.log("Deletion : ", deletion(arr, 6))
