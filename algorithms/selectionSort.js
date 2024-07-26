@@ -1,5 +1,5 @@
 // In selection sort, we try to create a sorted array on the left side of the current index. 
-// In every iteration, we swap the smallest element at the right side to i position.
+// In every iteration, we swap the smallest element on the right side to i position.
 
 // Time complexity : O (n^2)
 
@@ -28,3 +28,46 @@ const selectionSort = ({ array }) => {
 const arr = [3, 4, 8, 9, 7, 5, 6, 1, 2]
 
 console.log(selectionSort({ array: arr }))
+
+// How it is being sorted : ⬇️
+
+// [
+//     1, 4, 8, 9, 7,
+//     5, 6, 3, 2
+// ]
+// [
+//     1, 2, 8, 9, 7,
+//     5, 6, 3, 4
+// ]
+// [
+//     1, 2, 3, 9, 7,
+//     5, 6, 8, 4
+// ]
+// [
+//     1, 2, 3, 4, 7,
+//     5, 6, 8, 9
+// ]
+// [
+//     1, 2, 3, 4, 5,
+//     7, 6, 8, 9
+// ]
+// [
+//     1, 2, 3, 4, 5,
+//     6, 7, 8, 9
+// ]
+// [
+//     1, 2, 3, 4, 5,
+//     6, 7, 8, 9
+// ]
+// [
+//     1, 2, 3, 4, 5,
+//     6, 7, 8, 9
+// ]
+// [
+//     1, 2, 3, 4, 5,
+//     6, 7, 8, 9
+// ]
+// [
+//     1, 2, 3, 4, 5,
+//     6, 7, 8, 9
+// ]
