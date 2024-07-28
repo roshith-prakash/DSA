@@ -7,6 +7,7 @@
     <li>Array</li>
     <li>Singular Linked List</li>
     <li>Circular Linked List</li>
+    <li>Doubly Linked List</li>
 </ul>
 
 
