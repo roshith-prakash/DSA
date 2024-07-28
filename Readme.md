@@ -8,7 +8,6 @@
     <li>Singular Linked List</li>
 </ul>
 
-<br/>
 
 <h3>Algorithms:</h3>
 <ul>
