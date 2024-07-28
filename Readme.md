@@ -1,6 +1,6 @@
 <h1>Data Structures And Algorthims implemented in JavaScript.</h1>
 
-<h2?>Currently Implemented : </h2>
+<h2>Currently Implemented : </h2>
 
 <h3>Data Structures:</h3>
 <ul>
