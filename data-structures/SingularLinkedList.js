@@ -6,13 +6,14 @@ class Node {
     }
 }
 
+// The class to create the linked list
 class LinkedList {
     constructor() {
         this.head = null
         this.size = 0
     }
 
-    // Add node to the linked list
+    // Add node to the linked list.
     addNode(value) {
         // Create a new node
         const node = new Node(value, null)
@@ -33,6 +34,18 @@ class LinkedList {
         this.size = this.size + 1
     }
 
+    // Add node at start (Make the node the head).
+    addNodeAtStart(value) {
+        const node = new Node(value, null)
+        if (this.head) {
+            node.next = this.head
+            this.head = node
+        } else {
+            this.head = node
+        }
+    }
+
+    // Insert a node at the position specified.
     insertAtPosition(value, position) {
 
         if (position < 1) {
@@ -90,7 +103,7 @@ class LinkedList {
         }
     }
 
-    // Find an element in the linked list with the given value and remove it
+    // Find an element in the linked list with the given value and remove it.
     removeNode(value) {
         // If nodes are present in list
         if (this.size != 0 && this.head != null) {
@@ -128,7 +141,21 @@ class LinkedList {
         }
     }
 
-    // Traverse through the linked list to display all values
+    // Delete Head.
+    removeHead(value) {
+        if (this.head == null || this.size == 0) {
+            console.log("Linked List is Empty.")
+            return
+        }
+
+        if (this.head.next) {
+            this.head = this.head.next
+        } else {
+            this.head == null
+        }
+    }
+
+    // Traverse through the linked list to display all values.
     traverse() {
         // If nodes are present
         if (this.size != 0 && this.head != null) {
@@ -147,15 +174,30 @@ class LinkedList {
     }
 }
 
-
+// Initializing LinkedList
 const list = new LinkedList()
 
+// Appending nodes in LL
 list.addNode(10)
 list.addNode(20)
 list.addNode(30)
 list.addNode(30)
 list.addNode(40)
 list.addNode(50)
-list.insertAtPosition(10, 4)
 
+// Traverse list
+list.traverse()
+
+// Adding element at 4th position
+list.insertAtPosition(10, 4)
+// Adding new head element.
+list.addNodeAtStart(1)
+
+// Traverse list
+list.traverse()
+
+// Removing head element.
+list.removeHead()
+
+// Traverse list
 list.traverse()
