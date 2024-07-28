@@ -40,8 +40,11 @@ class LinkedList {
         if (this.head) {
             node.next = this.head
             this.head = node
+
+            this.size = this.size + 1
         } else {
             this.head = node
+            this.size = this.size + 1
         }
     }
 
@@ -84,6 +87,7 @@ class LinkedList {
             if (prev.next == null && i == position - 1) {
                 const node = new Node(value, null)
                 prev.next = node
+                this.size = this.size + 1
                 return
             }
 
@@ -142,7 +146,7 @@ class LinkedList {
     }
 
     // Delete Head.
-    removeHead(value) {
+    removeHead() {
         if (this.head == null || this.size == 0) {
             console.log("Linked List is Empty.")
             return
@@ -150,8 +154,10 @@ class LinkedList {
 
         if (this.head.next) {
             this.head = this.head.next
+            this.size = this.size - 1
         } else {
             this.head == null
+            this.size = this.size - 1
         }
     }
 
@@ -171,6 +177,11 @@ class LinkedList {
         else {
             console.log("List is empty")
         }
+    }
+
+    // Get the size of the list
+    getSize() {
+        return this.size
     }
 }
 
@@ -193,6 +204,9 @@ list.insertAtPosition(10, 4)
 // Adding new head element.
 list.addNodeAtStart(1)
 
+// Remove element
+list.removeNode(30)
+
 // Traverse list
 list.traverse()
 
@@ -201,3 +215,6 @@ list.removeHead()
 
 // Traverse list
 list.traverse()
+
+// List the size of the list
+console.log("\n", list.getSize())

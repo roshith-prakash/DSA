@@ -6,6 +6,7 @@
 <ul>
     <li>Array</li>
     <li>Singular Linked List</li>
+    <li>Circular Linked List</li>
 </ul>
 
 
