@@ -38,6 +38,9 @@ class Queue {
             // Removing undefined / null elements
             this.queueArray = this.queueArray.filter(item => item != null || item != undefined)
 
+            // Decreasing size
+            this.size = this.size - 1
+
             return elem
         } else {
             console.log("Queue is Empty!")
