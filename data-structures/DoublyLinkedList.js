@@ -12,6 +12,7 @@ class Node {
 class LinkedList {
     constructor() {
         this.head = null
+        this.tail = null
         this.size = 0
     }
 
@@ -23,8 +24,9 @@ class LinkedList {
         // If no nodes are present, point head to current node
         if (!this.head) {
             this.head = node
+            this.tail = node
         }
-        // If nodes are already present, loop till current.next == null and then add node as next.
+        // If nodes are already present, loop till current.next == null and then add node as next. Point tail to the new node
         else {
             let current = this.head
             while (current.next) {
@@ -32,6 +34,7 @@ class LinkedList {
             }
             current.next = node
             node.prev = current
+            this.tail = node
         }
 
         this.size = this.size + 1
@@ -48,6 +51,7 @@ class LinkedList {
             this.size = this.size + 1
         } else {
             this.head = node
+            this.tail = node
             this.size = this.size + 1
         }
     }
@@ -63,7 +67,6 @@ class LinkedList {
         // Check if linked list is empty - if empty then initialize as head
         if (this.size == 0 && this.head == null) {
             console.log("No nodes present in linked list. Adding node and initializing as start.")
-
             this.addNodeAtStart(value)
         }
         // If linked list is not empty
@@ -78,6 +81,7 @@ class LinkedList {
             if (prev.next == null) {
                 const node = new Node(value, this.head, null)
                 this.head.next = node
+                this.tail = node
                 this.size = this.size + 1
             }
 
@@ -92,6 +96,7 @@ class LinkedList {
                 const node = new Node(value, null)
                 node.prev = prev
                 prev.next = node
+                this.tail = node
                 this.size = this.size + 1
                 return
             }
@@ -122,28 +127,44 @@ class LinkedList {
 
             // If head is the value to be deleted
             if (prev.value == value) {
+
+                // If head is the only element
+                if (this.head.next == null) {
+                    this.tail = null
+                    this.head = null
+                    this.size = this.size - 1
+                    return
+                }
+
                 this.head = prev.next
                 this.head.prev = null
                 prev.next = null
+
                 this.size = this.size - 1
                 return
             }
 
             // Loop through the list to find the required element
-            while (prev.next.value != value) {
+            while (prev.next && prev.next.value != value) {
                 prev = prev.next
             }
 
             // If pointer is null, there was no node with given value
-            if (prev == null) {
+            if (prev.next == null) {
                 console.log(`Node with value ${value} not present.`)
             }
             // Required node is node after the pointer.
             else {
-                let current = prev.next
+                let current = prev?.next
                 // Linking previous node to next of required node. 
-                prev.next = current.next
-                current.next.prev = prev
+                prev.next = current?.next
+                if (prev?.next == null) {
+                    this.tail = prev
+                }
+                if (current?.next) {
+                    current.next.prev = prev
+                }
+
                 // Decrement size of list
                 this.size = this.size - 1
             }
@@ -155,17 +176,21 @@ class LinkedList {
 
     // Delete Head.
     removeHead() {
-        if (this.head == null || this.size == 0) {
+        if (this.head == null && this.size == 0) {
             console.log("Linked List is Empty.")
             return
         }
 
-        if (this.head.next) {
+        // If more than 1 element exists
+        if (this.size > 1) {
             this.head.next.prev = null
             this.head = this.head.next
             this.size = this.size - 1
-        } else {
-            this.head == null
+        }
+        // If only 1 element present (both head & tail is the same element.)
+        else {
+            this.head = null
+            this.tail = null
             this.size = this.size - 1
         }
     }
@@ -178,8 +203,26 @@ class LinkedList {
             // Loop through the list to display values
             let current = this.head
             while (current) {
-                console.log(current)
+                console.log(current.value)
                 current = current.next
+            }
+        }
+        // If no nodes are present.
+        else {
+            console.log("List is empty")
+        }
+    }
+
+    // Traverse through the linked list to display all values.
+    traverseReverse() {
+        // If nodes are present
+        if (this.size != 0 && this.tail != null) {
+            console.log("\nValues in linked list are:")
+            // Loop through the list to display values
+            let current = this.tail
+            while (current) {
+                console.log(current.value)
+                current = current.prev
             }
         }
         // If no nodes are present.
@@ -192,32 +235,67 @@ class LinkedList {
     getSize() {
         return this.size
     }
+
+    // Get the tail of the list
+    getTail() {
+        return this.tail
+    }
+
+    // Get the head of the list
+    getHead() {
+        return this.head
+    }
 }
 
-// Initializing LinkedList
-const list = new LinkedList()
+function testDoublyLinkedList() {
+    // Initializing LinkedList
+    const list = new LinkedList();
 
-// Appending nodes in LL
-list.addNode(10)
-list.addNode(20)
-list.addNode(30)
-list.addNode(40)
-list.addNode(50)
+    console.log("Adding nodes to the list");
+    list.addNode(1);
+    list.addNode(2);
+    list.addNode(3);
+    list.traverse(); // Should print 1, 2, 3
 
-// Adding new head
-list.addNodeAtStart(5)
+    console.log("\nAdding node at the start");
+    list.addNodeAtStart(0);
+    list.traverse(); // Should print 0, 1, 2, 3
 
-// Adding node at position 2
-list.insertAtPosition(7, 2)
+    console.log("\nInserting node at position 2");
+    list.insertAtPosition(1.5, 2);
+    list.traverse(); // Should print 0, 1.5, 1, 2, 3
 
-// Traverse list
-list.traverse()
+    console.log("\nRemoving node with value 1.5");
+    list.removeNode(1.5);
+    list.traverse(); // Should print 0, 1, 2, 3
 
-// Removing head
-list.removeNode(7)
+    console.log("\nRemoving head node");
+    list.removeHead();
+    list.traverse(); // Should print 1, 2, 3
 
-// Traverse list
-list.traverse()
+    console.log("\nAttempting to remove a node that doesn't exist");
+    list.removeNode(10); // Should print "Node with value 10 not present."
+    list.traverse(); // Should print 1, 2, 3
 
-// List the size of the list
-console.log("\n", list.getSize())
+    console.log("\nRemoving all nodes one by one");
+    list.removeHead();
+    list.removeHead();
+    list.removeHead();
+    list.traverse(); // Should print "List is empty"
+
+    console.log("\nTrying to remove head from an empty list");
+    list.removeHead(); // Should print "Linked List is Empty."
+
+    console.log("Head : ", list.getHead())
+    console.log("Tail : ", list.getTail())
+
+    // Adding nodes again to test reverse traversal
+    console.log("\nAdding nodes to the list for reverse traversal");
+    list.addNode(1);
+    list.addNode(2);
+    list.addNode(3);
+    list.traverseReverse(); // Should print 3, 2, 1
+}
+
+testDoublyLinkedList();
+

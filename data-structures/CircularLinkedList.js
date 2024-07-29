@@ -175,8 +175,8 @@ class CircularLinkedList {
                 prev = prev.next
             }
 
-            // If pointer is null, there was no node with given value
-            if (prev == null) {
+            // If pointer.next points to head, there was no node with given value
+            if (prev.next == this.head) {
                 console.log(`Node with value ${value} not present.`)
             }
             // Required node is node after the pointer.
@@ -245,26 +245,52 @@ class CircularLinkedList {
     getSize() {
         return this.size
     }
+
+    // Get the head of the list
+    getHead() {
+        return this.head
+    }
 }
 
-// Initializing  Circular LinkedList
-const list = new CircularLinkedList()
 
-// Appending nodes in LL
-list.addNodeAtStart(1)
-list.addNode(2)
-list.addNode(5)
-list.insertAtPosition(3, 3)
+function testCircularLinkedList() {
+    // Initializing CircularLinkedList
+    const list = new CircularLinkedList();
 
-// Traverse the List
-list.traverse()
+    console.log("Adding nodes to the list");
+    list.addNode(1);
+    list.addNode(2);
+    list.addNode(3);
+    list.traverse(); // Should print 1, 2, 3 with circular references
 
-// Removing node with value 2
-list.removeHead()
+    console.log("\nAdding node at the start");
+    list.addNodeAtStart(0);
+    list.traverse(); // Should print 0, 1, 2, 3 with circular references
 
-// Removing node with value 2
-list.removeNode(2)
+    console.log("\nInserting node at position 2");
+    list.insertAtPosition(1.5, 2);
+    list.traverse(); // Should print 0, 1.5, 1, 2, 3 with circular references
 
-// Traverse the List
-list.traverse()
-console.log(list.getSize())
+    console.log("\nRemoving node with value 1.5");
+    list.removeNode(1.5);
+    list.traverse(); // Should print 0, 1, 2, 3 with circular references
+
+    console.log("\nRemoving head node");
+    list.removeHead();
+    list.traverse(); // Should print 1, 2, 3 with circular references
+
+    console.log("\nAttempting to remove a node that doesn't exist");
+    list.removeNode(10); // Should print "Node with value 10 not present."
+    list.traverse(); // Should print 1, 2, 3 with circular references
+
+    console.log("\nRemoving all nodes one by one");
+    list.removeHead();
+    list.removeHead();
+    list.removeHead();
+    list.traverse(); // Should print "List is empty"
+
+    console.log("\nTrying to remove head from an empty list");
+    list.removeHead(); // Should print "Linked List is Empty."
+}
+
+testCircularLinkedList();
