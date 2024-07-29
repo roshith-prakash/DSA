@@ -16,6 +16,8 @@
                 <li>Doubly Linked List</li>
                 <li>Stack (Array)</li>
                 <li>Stack (Linked List)</li>
+                <li>Queue (Array)</li>
+                <li>Queue (Linked List)</li>
             </ul>
         </td>
         <td>
