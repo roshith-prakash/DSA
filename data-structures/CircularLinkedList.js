@@ -201,12 +201,20 @@ class CircularLinkedList {
         }
 
         let current = this.head
+
+        if (current.next == this.head) {
+            this.head = null
+            return
+        }
+
         let prev = this.head
 
         // Loop through the array to find the last element.
         while (current.next != this.head) {
             current = current.next
         }
+
+
 
         // Pointing last element to the new head
         current.next = this.head.next
@@ -216,6 +224,29 @@ class CircularLinkedList {
         prev.next = null
         // Decreasing the size
         this.size = this.size - 1
+        return
+    }
+
+    // To reverse the linked list
+    reverse() {
+        // Pointer to previous node
+        var prev = null;
+        // Pointer to current node
+        var current = this.head;
+        // Pointer to next node
+        var next = null;
+        while (current != null) {
+            // Get next node
+            next = current.next;
+            // Make the next pointer point to the previous node
+            current.next = prev;
+            // Add current node as prev
+            prev = current;
+            // Add next node as current
+            current = next;
+        }
+        // Change the head pointer to prev (current will be null)
+        this.head = prev;
         return
     }
 
@@ -291,6 +322,12 @@ function testCircularLinkedList() {
 
     console.log("\nTrying to remove head from an empty list");
     list.removeHead(); // Should print "Linked List is Empty."
+
+    list.addNode(1);
+    list.addNode(2);
+    list.addNode(3);
+    list.reverse()
+    list.traverse(); // Should print 1,3,2 (not changing the head)
 }
 
 testCircularLinkedList();

@@ -195,6 +195,32 @@ class LinkedList {
         }
     }
 
+    // To reverse the linked list
+    reverse() {
+        // Pointer to previous node
+        var prevNode = null;
+        // Pointer to current node
+        var currentNode = this.head;
+        // Pointer to next node
+        var nextNode = null;
+        this.tail = currentNode
+
+        while (currentNode != null) {
+            // Get next node
+            nextNode = currentNode.next;
+            // Make the next pointer point to the previous node
+            currentNode.next = prevNode;
+            currentNode.prev = nextNode
+            // Add current node as prev
+            prevNode = currentNode;
+            // Add next node as current
+            currentNode = nextNode;
+        }
+        // Change the head pointer to prev (current will be null)
+        this.head = prevNode;
+        return
+    }
+
     // Traverse through the linked list to display all values.
     traverse() {
         // If nodes are present
@@ -294,7 +320,12 @@ function testDoublyLinkedList() {
     list.addNode(1);
     list.addNode(2);
     list.addNode(3);
-    list.traverseReverse(); // Should print 3, 2, 1
+
+    list.traverseReverse()
+
+    // Reverse the list
+    list.reverse()
+    list.traverse(); // Should print 3, 2, 1
 }
 
 testDoublyLinkedList();

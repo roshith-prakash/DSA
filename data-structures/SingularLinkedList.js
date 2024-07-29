@@ -156,9 +156,32 @@ class LinkedList {
             this.head = this.head?.next
             this.size = this.size - 1
         } else {
-            this.head == null
+            this.head = null
             this.size = this.size - 1
         }
+    }
+
+    // To reverse the linked list
+    reverse() {
+        // Pointer to previous node
+        var prev = null;
+        // Pointer to current node
+        var current = this.head;
+        // Pointer to next node
+        var next = null;
+        while (current != null) {
+            // Get next node
+            next = current.next;
+            // Make the next pointer point to the previous node
+            current.next = prev;
+            // Add current node as prev
+            prev = current;
+            // Add next node as current
+            current = next;
+        }
+        // Change the head pointer to prev (current will be null)
+        this.head = prev;
+        return
     }
 
     // Traverse through the linked list to display all values.
@@ -228,6 +251,14 @@ function testLinkedList() {
 
     console.log("\nTrying to remove head from an empty list:");
     list.removeHead(); // Should print "Linked List is Empty."
+
+    list.traverse()
+
+    list.addNode(1);
+    list.addNode(2);
+    list.addNode(3);
+    list.reverse()
+    list.traverse(); // Should print 3,2,1
 }
 
 testLinkedList();
