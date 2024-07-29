@@ -13,11 +13,24 @@
 
 <h3>Algorithms:</h3>
 <ul>
-    <li>Binary Search</li>
-    <li>Bubble Sort</li>
-    <li>Count Sort</li>
-    <li>Insertion Sort</li>
-    <li>Merge Sort</li>
-    <li>Quick Sort</li>
-    <li>Selection Sort</li>
+    <li>Sorting Algorithms:
+        <ul>
+            <li>Bubble Sort</li>
+            <li>Count Sort</li>
+            <li>Insertion Sort</li>
+            <li>Merge Sort</li>
+            <li>Quick Sort</li>
+            <li>Selection Sort</li>
+        </ul>
+    </li>
+        <li>Other Algorithms:
+        <ul>
+            <li>Binary Search</li>
+            <li>Check for Prime Number</li>
+            <li>Get Highest Common Factor</li>
+            <li>Get Least Common Multiple</li>
+            <li>Get Prime Factors for a number</li>
+            <li>Get sequence of prime numbers before a number</li>
+        </ul>
+    </li>
 </ul>
