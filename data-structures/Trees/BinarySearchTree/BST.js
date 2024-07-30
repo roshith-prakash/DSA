@@ -154,30 +154,39 @@ class BST {
 }
 
 const testBST = () => {
+
+    // BST used in the example
+    // 
+    //        12
+    //       /  \
+    //      7    15
+    //     / \     \
+    //    3  10    18
+
     const bst = new BST();
 
-    bst.addNode(bst.head, 10);
-    bst.addNode(bst.head, 5);
-    bst.addNode(bst.head, 15);
-    bst.addNode(bst.head, 3);
-    bst.addNode(bst.head, 7);
     bst.addNode(bst.head, 12);
+    bst.addNode(bst.head, 7);
+    bst.addNode(bst.head, 3);
+    bst.addNode(bst.head, 10);
+    bst.addNode(bst.head, 7);
+    bst.addNode(bst.head, 15);
     bst.addNode(bst.head, 18);
 
     console.log("In-order traversal:");
     bst.inOrder();
 
-    console.log("Deleting node with value 5");
-    bst.deleteNode(bst.head, 5);
+    console.log("Deleting node with value 12");
+    bst.deleteNode(bst.head, 12);
     console.log("In-order traversal after deletion:");
     bst.inOrder();
 
-    console.log("Searching for node with value 7");
-    const foundNode = bst.search(bst.head, 7);
+    console.log("Searching for node with value 15");
+    const foundNode = bst.search(bst.head, 15);
     if (foundNode) {
-        console.log(`Node with value 7 found: ${foundNode.value}`);
+        console.log(`Node with value 15 found: ${foundNode.value}`);
     } else {
-        console.log("Node with value 7 not found.");
+        console.log("Node with value 15 not found.");
     }
 }
 
