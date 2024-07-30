@@ -3,12 +3,16 @@ Stack is a linear data strucure that follows the LIFO (Last in First Out) rule.
 Elements in a stack are added and removed from the same position. (Stack top / head.)
 
 Representations of A Stack :
-    1. Array representation
-    2. Linked List representation
-   
+<ol>
+    <li>Array representation</li>
+    <li>Linked List representation</li>
+</ol>
+
 Operations on a Stack :
-    1. Push
-    2. Pop
-    3. Peek
-    4. Display Stack
-    5. isEmpty
+<ol>
+    <li>Push</li>
+    <li>Pop</li>
+    <li>Peek</li>
+    <li>Display Stack</li>
+    <li>isEmpty</li>
+</ol>

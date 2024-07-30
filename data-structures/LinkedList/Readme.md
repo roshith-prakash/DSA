@@ -29,7 +29,7 @@ Operations on a Stack :
             <li>Append at end</li>
             <li>Insert at given position</li>
         </ol>
-    <li>
+    </li>
     <li>  Remove Node
         <ol>
             <li>Remove Head</li>
