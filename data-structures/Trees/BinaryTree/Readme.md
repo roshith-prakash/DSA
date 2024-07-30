@@ -13,3 +13,10 @@ Types of Binary Tree:
 <li>Skewed trees : All elements are to the right or the left.</li>
 
 </ol>
+
+Traversal of Binary Tree : 
+<ol>
+    <li>PreOrder (Root | Left subtree | Right Subtree)</li>
+    <li>PostOrder (Left subtree | Right Subtree | Root )</li>
+    <li>InOrder ( Left subtree | Root | Right Subtree)</li>
+</ol>

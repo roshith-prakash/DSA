@@ -14,6 +14,8 @@
     <li>Queue (Linked List)</li>
     <li>DEQueue (Double Ended Queue - Array)</li>
     <li>DEQueue (Double Ended Queue - Linked List)</li>
+    <li>Binary Tree</li>
+    <li>Binary Search Tree (BST)</li>
 </ul>
       
 <h3>Algorithms:</h3>
