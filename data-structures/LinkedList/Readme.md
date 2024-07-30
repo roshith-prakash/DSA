@@ -3,25 +3,37 @@ Linked List is a linear data strucure in which values are stored as nodes, with 
 Pointers in a node : Head, Tail(optional)
 
 Usage of LinkedList in other data structures :
-    1. Queues
-    2. Stacks
-    3. Trees
+<ol>
+    <li>Queues</li>
+    <li>Stacks</li>
+    <li>Trees</li>
+</ol>
 
 Types of List:
-    1. Singly Linked List
-    2. Doubly Linked List 
-    3. Circular Linked List
+<ol>
+    <li>Singly Linked List</li>
+    <li>Doubly Linked List</li>
+    <li>Circular Linked List</li>
+</ol>
 
 Operations on a Stack :
-    1. Traverse List
-    2. Add Node
-        2.1  Add Head node
-        2.2. Append at tend
-        2.3. Insert at given position
-    3. Remove Node
-        3.1. Remove Head
-        3.2. Remove node with given value 
-    4. Display List
-    5. getSize
-    6. getHead (optional)
-    7. getTail (optional)
+
+<ol>
+    <li>Traverse List</li>
+    <li>getSize</li>
+    <li>getHead</li>
+    <li>getTail</li>
+    <li> Add Node
+        <ol>
+            <li>Add Head node</li>
+            <li>Append at end</li>
+            <li>Insert at given position</li>
+        </ol>
+    <li>
+    <li>  Remove Node
+        <ol>
+            <li>Remove Head</li>
+            <li>Remove node with given value </li>
+        </ol>
+    <li>
+</ol>
