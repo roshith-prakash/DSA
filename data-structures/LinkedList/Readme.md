@@ -1,6 +1,6 @@
 Linked List is a linear data strucure in which values are stored as nodes, with each node storing a pointer to the next node.
 
-Pointers in a node : Head, Tail(optional)
+Pointers in a Linked List : Head, Tail(optional)
 
 Usage of LinkedList in other data structures :
 <ol>
@@ -35,5 +35,5 @@ Operations on a Stack :
             <li>Remove Head</li>
             <li>Remove node with given value </li>
         </ol>
-    <li>
+    </li>
 </ol>
