@@ -28,3 +28,15 @@ Rotations in AVL :
     <li>LR Rotation (Adding node to right of left ) - Rotate anti-clockwise then clockwise</li>
     <li>RL Rotation (Adding node to left of right) - Rotate clockwise then anti-clockwise</li></li>
 </ol>
+
+<b>IMPORTANT</b>
+Balancing a AVL Tree after insertion : 
+<ol>
+    <li>For LL insertion : Right rotate once wrt first imbalanced node.</li>
+    <li>For RR insertion : Left rotate once wrt first imbalanced node.
+    </li>
+    <li>For LR insertion : Left rotate once & then right rotate once.
+    </li>
+    <li>For RL insertions : Right rotate once & then left rotate once.
+    </li>
+</ol>

@@ -16,6 +16,7 @@
     <li>DEQueue (Double Ended Queue - Linked List)</li>
     <li>Binary Tree</li>
     <li>Binary Search Tree (BST)</li>
+    <li>AVL Tree</li>
 </ul>
       
 <h3>Algorithms:</h3>
