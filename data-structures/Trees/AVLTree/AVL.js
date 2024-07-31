@@ -15,7 +15,7 @@ class Node {
 const inOrder = (head) => {
     while (head != null) {
         inOrder(head.left)
-        console.log(head)
+        console.log(head.value)
         inOrder(head.right)
         return
     }
@@ -47,7 +47,6 @@ class AVL {
         while (node.right != null) {
             node = node.right
         }
-
         return node
     }
 
@@ -197,13 +196,12 @@ class AVL {
         this.head = this.addNode(this.head, value)
     }
 
+    // To remove an element from the AVL Tree
     deleteNode(node, value) {
         // If node is null, element is not present in array
         if (node == null) {
             return node
         }
-
-
 
         // If value is smaller than current node, move to left subtree
         if (node && value < node.value) {
@@ -215,27 +213,31 @@ class AVL {
         }
         // If node is found, but is not a leaf node
         else {
+            // Node has one or zero child nodes
             if (node.left == null || node.right == null) {
                 // Node with only one child or no child
-                let temp = node.left ? node.left : node.right;
+                let child = node.left ? node.left : node.right;
 
-                if (temp == null) {
-                    // No child case
-                    temp = node;
+                // Node has no child
+                if (child == null) {
+                    child = node;
                     node = null;
-                } else {
-                    // One child case
-                    node = temp; // Copy the contents of the non-empty child
                 }
-            } else {
+                // Node has One child
+                else {
+                    node = child; // Copy the contents of the non-empty child
+                }
+            }
+            // Node has 2 children
+            else {
                 // Node with two children: Get the inorder predecessor (max in the left subtree)
-                let temp = this.getInOrderPredecessor(node);
+                let inOrderPredecessor = this.getInOrderPredecessor(node);
 
                 // Copy the predecessor's value to this node
-                node.value = temp.value;
+                node.value = inOrderPredecessor.value;
 
                 // Delete the inorder predecessor
-                node.left = this.deleteNode(node.left, temp.value);
+                node.left = this.deleteNode(node.left, inOrderPredecessor.value);
             }
         }
 
@@ -246,8 +248,7 @@ class AVL {
         // STEP 2: UPDATE HEIGHT OF THE CURRENT NODE 
         node.height = Math.max(this.getHeight(node.left), this.getHeight(node.right));
 
-        // STEP 3: GET THE BALANCE FACTOR OF THIS NODE (to check whether 
-        // this node became unbalanced) 
+        // STEP 3: GET THE BALANCE FACTOR OF THIS NODE (to check whether this node became unbalanced) 
         let balance = this.getBalanceFactor(node);
 
         // If this node becomes unbalanced, then there are 4 cases 
@@ -282,19 +283,59 @@ class AVL {
     }
 }
 
-const avl = new AVL()
-avl.insert(45)
-avl.insert(4)
-avl.insert(5)
-avl.insert(8)
-avl.insert(9)
-console.log("Head : ", avl.head)
-console.log("\n-------------------------------------------------\n")
-avl.inOrder(avl.head)
 
-avl.delete(5)
-console.log("\n-------------------------------------------------\n")
+const testAVL = () => {
+    // Testing AVL Tree Implementation
+    const avlTree = new AVL();
 
-console.log("Head : ", avl.head)
-console.log("\n-------------------------------------------------\n")
-avl.inOrder(avl.head)
+    // Insert nodes
+    avlTree.insert(10);
+    avlTree.insert(20);
+    avlTree.insert(30);
+    avlTree.insert(40);
+    avlTree.insert(50);
+    avlTree.insert(25);
+
+    // Print inOrder traversal (should print sorted values)
+    console.log("InOrder Traversal after inserts:");
+    avlTree.inOrder();
+
+    // Search for nodes
+    console.log("Search for node with value 20:");
+    console.log(avlTree.search(avlTree.head, 20));
+
+    console.log("Search for node with value 60 (not present):");
+    console.log(avlTree.search(avlTree.head, 60));
+
+    // Delete nodes
+    avlTree.delete(20);
+    console.log("InOrder Traversal after deleting node with value 20:");
+    avlTree.inOrder();
+
+    avlTree.delete(40);
+    console.log("InOrder Traversal after deleting node with value 40:");
+    avlTree.inOrder();
+
+    avlTree.delete(10);
+    console.log("InOrder Traversal after deleting node with value 10:");
+    avlTree.inOrder();
+}
+
+testAVL()
+
+// const avl = new AVL()
+// avl.insert(45)
+// avl.insert(4)
+// avl.insert(5)
+// avl.insert(8)
+// avl.insert(9)
+// console.log("Head : ", avl.head)
+// console.log("\n-------------------------------------------------\n")
+// avl.inOrder(avl.head)
+
+// avl.delete(5)
+// console.log("\n-------------------------------------------------\n")
+
+// console.log("Head : ", avl.head)
+// console.log("\n-------------------------------------------------\n")
+// avl.inOrder(avl.head)
