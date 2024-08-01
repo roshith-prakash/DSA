@@ -14,7 +14,7 @@ class Node {
 const inOrder = (head) => {
     while (head != null) {
         inOrder(head.left)
-        console.log(head.value)
+        console.log({ value: head.value, left: head.left?.value, right: head.right?.value })
         inOrder(head.right)
         return
     }
@@ -174,15 +174,15 @@ const testBST = () => {
     bst.addNode(bst.head, 13)
     bst.addNode(bst.head, 18);
 
-    console.log("In-order traversal:");
+    console.log("\n\nIn-order traversal:\n\n");
     bst.inOrder();
 
-    console.log("Deleting node with value 15");
+    console.log("\n\nDeleting node with value 15\n\n");
     bst.deleteNode(bst.head, 15);
-    console.log("In-order traversal after deletion:");
+    console.log("\n\nIn-order traversal after deletion:\n\n");
     bst.inOrder();
 
-    console.log("Searching for node with value 12");
+    console.log("\n\nSearching for node with value 12\n\n");
     const foundNode = bst.search(bst.head, 12);
     if (foundNode) {
         console.log(`Node with value 12 found: ${foundNode.value}`);

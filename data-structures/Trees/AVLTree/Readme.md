@@ -13,7 +13,7 @@ AVL Tree properties:
     <li>AVL is a height balanced BST.</li>
     <li>The Height difference between height of left subtree and right subtree for every node is less than or equal to 1.</li>
     <li>
-    Balance Factor = Height of right subtree - Height of left subtree
+    Balance Factor = Height of left subtree - Height of right subtree
     </li>
     <li>
     Balance Factor must be -1, 0 or 1 for all nodes in a AVL tree.

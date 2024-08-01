@@ -15,7 +15,7 @@ class Node {
 const inOrder = (head) => {
     while (head != null) {
         inOrder(head.left)
-        console.log(head.value)
+        console.log({ value: head.value, left: head.left?.value, right: head.right?.value })
         inOrder(head.right)
         return
     }
@@ -90,11 +90,11 @@ class AVL {
 
     // Rotations : Left Rotate & Right Rotate
     //
-    //      y                              x
-    //     / \     on Right Rotation ->   / \
-    //    x   T3   <- on Left Rotation   T1  y
-    //   / \                                / \
-    //  T1  T2                             T2   T3
+    //      y                                 x
+    //     / \     -> on Right Rotation ->   / \
+    //    x   T3   <- on Left Rotation <-   T1  y
+    //   / \                               / \
+    //  T1  T2                           T2   T3
 
     // Where T1, T2 & T3 represent subtrees.
 
@@ -157,10 +157,13 @@ class AVL {
         // If value is larger than current node value, move to right subtree and continue operation.
         else if (value > node.value) {
             node.right = this.addNode(node.right, value)
-        } else {
+        }
+        // If value is already present, return the same node
+        else {
             return node
         }
 
+        // Calculate node height
         node.height = 1 + Math.max(this.getHeight(node.left), this.getHeight(node.right))
 
         // Calculate the balance factor of the node
@@ -171,15 +174,15 @@ class AVL {
             return this.rightRotate(node)
         }
 
-        // RR rotation case
-        if (balanceFactor < -1 && value > node.right?.value) {
-            return this.leftRotate(node)
-        }
-
         // LR rotation case
         if (balanceFactor > 1 && value > node.left?.value) {
             node.left = this.leftRotate(node.left)
             return this.rightRotate(node)
+        }
+
+        // RR rotation case
+        if (balanceFactor < -1 && value > node.right?.value) {
+            return this.leftRotate(node)
         }
 
         // RL rotation case
@@ -216,6 +219,7 @@ class AVL {
             // Node has one or zero child nodes
             if (node.left == null || node.right == null) {
                 // Node with only one child or no child
+                // If both are null, child value is also null
                 let child = node.left ? node.left : node.right;
 
                 // Node has no child
@@ -245,10 +249,10 @@ class AVL {
         if (node == null)
             return node;
 
-        // STEP 2: UPDATE HEIGHT OF THE CURRENT NODE 
+        // UPDATE HEIGHT OF THE CURRENT NODE 
         node.height = Math.max(this.getHeight(node.left), this.getHeight(node.right));
 
-        // STEP 3: GET THE BALANCE FACTOR OF THIS NODE (to check whether this node became unbalanced) 
+        // GET THE BALANCE FACTOR OF THIS NODE (to check whether this node became unbalanced) 
         let balance = this.getBalanceFactor(node);
 
         // If this node becomes unbalanced, then there are 4 cases 
@@ -257,15 +261,15 @@ class AVL {
             return this.rightRotate(node);
         }
 
-        // Right Right Case 
-        if (balance < -1 && this.getBalanceFactor(node.right) <= 0) {
-            return this.leftRotate(node);
-        }
-
         // Left Right Case 
         if (balance > 1 && this.getBalanceFactor(node.left) < 0) {
             node.left = this.leftRotate(node.left);
             return this.rightRotate(node);
+        }
+
+        // Right Right Case 
+        if (balance < -1 && this.getBalanceFactor(node.right) <= 0) {
+            return this.leftRotate(node);
         }
 
         // Right Left Case 
@@ -297,27 +301,27 @@ const testAVL = () => {
     avlTree.insert(25);
 
     // Print inOrder traversal (should print sorted values)
-    console.log("InOrder Traversal after inserts:");
+    console.log("\n\nInOrder Traversal after inserts:");
     avlTree.inOrder();
 
     // Search for nodes
-    console.log("Search for node with value 20:");
+    console.log("\n\nSearch for node with value 20:\n\n");
     console.log(avlTree.search(avlTree.head, 20));
 
-    console.log("Search for node with value 60 (not present):");
+    console.log("\n\nSearch for node with value 60 (not present):\n\n");
     console.log(avlTree.search(avlTree.head, 60));
 
     // Delete nodes
     avlTree.delete(20);
-    console.log("InOrder Traversal after deleting node with value 20:");
+    console.log("\n\nInOrder Traversal after deleting node with value 20:\n\n");
     avlTree.inOrder();
 
     avlTree.delete(40);
-    console.log("InOrder Traversal after deleting node with value 40:");
+    console.log("\n\nInOrder Traversal after deleting node with value 40:\n\n");
     avlTree.inOrder();
 
     avlTree.delete(10);
-    console.log("InOrder Traversal after deleting node with value 10:");
+    console.log("\n\nInOrder Traversal after deleting node with value 10:\n\n");
     avlTree.inOrder();
 }
 

@@ -13,7 +13,7 @@ class Node {
 // Prints in order of : Root | Left Subtree | Right Subtree
 const preOrder = (head) => {
     while (head != null) {
-        console.log(head.value)
+        console.log({ value: head.value, left: head.left?.value, right: head.right?.value })
         preOrder(head.left)
         preOrder(head.right)
         return
@@ -26,7 +26,7 @@ const postOrder = (head) => {
     while (head != null) {
         postOrder(head.left)
         postOrder(head.right)
-        console.log(head.value)
+        console.log({ value: head.value, left: head.left?.value, right: head.right?.value })
         return
     }
 }
@@ -36,7 +36,7 @@ const postOrder = (head) => {
 const inOrder = (head) => {
     while (head != null) {
         inOrder(head.left)
-        console.log(head.value)
+        console.log({ value: head.value, left: head.left?.value, right: head.right?.value })
         inOrder(head.right)
         return
     }
@@ -136,13 +136,13 @@ binaryTree.addToRight(n1, n3)
 binaryTree.addToLeft(n2, n4)
 binaryTree.addToRight(n3, n5)
 
-console.log("\nPreOrder Traversal:")
+console.log("\n\nPreOrder Traversal:\n\n")
 binaryTree.preOrder()
 
-console.log("\nPostOrder Traversal:")
+console.log("\n\nPostOrder Traversal:\n\n")
 binaryTree.postOrder()
 
-console.log("\nInOrder Traversal:")
+console.log("\n\nInOrder Traversal:\n\n")
 binaryTree.inOrder()
 
 
