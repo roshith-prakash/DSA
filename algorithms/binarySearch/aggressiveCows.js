@@ -29,6 +29,7 @@ const isPossible = (arr, cows, mid) => {
 
 const partition = (arr, cows) => {
 
+    // Sort the array  
     arr.sort((a, b) => a - b)
     // Start for partition will be 0
     let s = 0
