@@ -17,7 +17,7 @@ const sieveOfEratothenes = (num) => {
         // If number was not checked / is Prime
         if (arr[i]) {
 
-            // Increase count
+            // Increase count 
             count++
 
             // Set all multiples of number as false
