@@ -56,7 +56,7 @@ class LinkedList {
             return
         }
 
-        // Check if linkQed list is empty - if empty then initialize as head
+        // Check if linked list is empty - if empty then initialize as head
         if (this.size == 0 && this.head == null) {
             console.log("No nodes present in linked list. Adding node and initializing as start.")
 
