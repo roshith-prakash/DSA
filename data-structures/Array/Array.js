@@ -130,47 +130,32 @@ const rightRotation = (arr, requiredRotations) => {
 
 // Generate possible subarrays of the array
 const generateSubArrays = (arr) => {
+    const fullArr = [];
 
-    // Parent array - will contain subarrays
-    const fullArr = []
+    const generateSubsets = (index, currentSubset) => {
 
-    const printSubArray = (arr, start, end) => {
-
-        // When end index is higher - process has terminated
-        if (end > arr.length) {
-            return
+        if (index === arr.length) {
+            fullArr.push([...currentSubset]);
+            return;
         }
-        // If start index is higher than end index, increment end index and reset start index
-        else if (start > end) {
-            printSubArray(arr, 0, end + 1)
-        }
-        // Create a sub array from start index to end index
-        // Increment start index once process is completed
-        else {
-            // Create a new array
-            let newArr = []
 
-            // Push all elements from start index to end index
-            for (let i = start; i < end; i++) {
-                newArr.push(arr[i])
-            }
+        // Include the current element and move to the next index
+        currentSubset.push(arr[index]);
+        generateSubsets(index + 1, currentSubset);
 
-            // Push the created array to the Parent array
-            if (newArr.length > 0) {
-                fullArr.push(newArr)
-            }
+        // Exclude the current element and move to the next index
+        currentSubset.pop();
+        generateSubsets(index + 1, currentSubset);
 
-            printSubArray(arr, start + 1, end)
-        }
-        return
-    }
 
-    printSubArray(arr, 0, 0)
-    return (fullArr.sort())
+    };
+
+    generateSubsets(0, []);
+    return fullArr;
 }
 
 // Array
-const arr = [1, 2, 3, 4]
+const arr = [1, 2, 3]
 
 // Performing Operations
 console.log("Search : ", search(arr, 3))
