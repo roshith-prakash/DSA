@@ -1,15 +1,11 @@
 // You are given an array 'arr' consisting of 'n' integers which denote the position of a stall.
-
 // You are also given an integer 'k' which denotes the number of aggressive cows.
-
 // You are given the task of assigning stalls to 'k' cows such that the minimum distance between any two of them is the maximum possible.
-
 // Print the maximum possible minimum distance.
 
 const isPossible = (arr, cows, mid) => {
     // Maintaining counter
     let cowCount = 1
-    // Boards which are alloted
     let lastPosition = arr[0]
 
     // Loop through the array
