@@ -34,12 +34,6 @@
         <li>Other Algorithms:
         <ul>
             <li>Binary Search</li>
-            <li>Check for Prime Number</li>
-            <li>Get Highest Common Factor</li>
-            <li>Get Least Common Multiple</li>
-            <li>Get Prime Factors for a number</li>
-            <li>Get sequence of prime numbers before a number</li>
-            <li>Sieve of Eratothenes</li>
             <li>Binary search based : 
                 <ul>
                     <li>Aggressive Cows</li>
@@ -48,7 +42,17 @@
                     <li>Peak element in mountain</li>
                     <li>Square root of a number</li>
                 </ul>
-            </li>            
+            </li>
+            <li>Math : 
+                <ul>
+                    <li>Check for Prime Number</li>
+                    <li>Get Highest Common Factor</li>
+                    <li>Get Least Common Multiple</li>
+                    <li>Get Prime Factors for a number</li>
+                    <li>Get sequence of prime numbers before a number</li>
+                    <li>Sieve of Eratothenes</li>
+                </ul>
+            </li>               
         </ul>
     </li>
 </ul>
