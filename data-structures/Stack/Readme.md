@@ -16,3 +16,14 @@ Operations on a Stack :
     <li>Display Stack</li>
     <li>isEmpty</li>
 </ol>
+
+Problems Added : 
+
+<ol>
+    <li>Delete Middle element from stack</li>
+    <li>Insert element at bottom of stack</li>
+    <li>Reverse elements in the stack</li>
+    <li>Sort elements inside the stack</li>
+    <li>Check if Redundant brackets are present</li>
+    <li>Minimum brackets to reverse for valid string</li>
+</ol>

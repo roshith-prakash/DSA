@@ -37,3 +37,11 @@ Operations on a Stack :
         </ol>
     </li>
 </ol>
+
+Problems Added : 
+
+<ol>
+    <li>Check if LL is a palindrome</li>
+    <li>MergeSort a LL</li>
+    <li>Reverse elements in LL in K groups</li>
+</ol>

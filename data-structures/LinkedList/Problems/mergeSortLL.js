@@ -71,10 +71,12 @@ class LinkedList {
     // Merge the two lists
     merge(left, right) {
 
+        // If no left LL is present, return right
         if (left == null) {
             return right
         }
 
+        // If no right LL is present, return left
         if (right == null) {
             return left
         }
@@ -85,12 +87,14 @@ class LinkedList {
 
         // Link the nodes in sorted order
         while (left != null && right != null) {
+            // Left is smaller, add left to LL
             if (left.value < right.value) {
                 temp.next = left
                 temp = left
                 left = left.next
-
-            } else {
+            }
+            // Right is smaller, add right to LL
+            else {
                 temp.next = right
                 temp = right
                 right = right.next

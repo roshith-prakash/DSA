@@ -1,3 +1,9 @@
+// Check if a LL is a palindrome.
+// To solve : 
+// 1. Find middle of LL using fast & slow pointers method
+// 2. Reverse the second half of the LL
+// 3. Check while both are not null, if the values match.
+
 // Node to be used inside linked list.
 class Node {
     constructor(value, next) {
