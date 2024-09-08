@@ -44,7 +44,7 @@ const findMinimumCost = (str) => {
         stack.pop()
     }
 
-    let ans = ((a + 1) / 2) + ((b + 1) / 2)
+    let ans = Math.floor(((a + 1) / 2)) + Math.floor(((b + 1) / 2))
 
     return ans
 }
