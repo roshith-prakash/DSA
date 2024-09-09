@@ -44,9 +44,10 @@ const findMinimumCost = (str) => {
         stack.pop()
     }
 
+    // Calculate the number of brackets that need to be reversed
     let ans = Math.floor(((a + 1) / 2)) + Math.floor(((b + 1) / 2))
 
     return ans
 }
 
-console.log(findMinimumCost("(()))("))
+console.log(findMinimumCost("(()("))
