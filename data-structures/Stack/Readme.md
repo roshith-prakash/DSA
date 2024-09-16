@@ -26,4 +26,6 @@ Problems Added :
     <li>Sort elements inside the stack</li>
     <li>Check if Redundant brackets are present</li>
     <li>Minimum brackets to reverse for valid string</li>
+    <li>Find Next Smaller element</li>
+    <li>Find Largest Rectangle possible</li>
 </ol>

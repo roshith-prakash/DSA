@@ -52,6 +52,7 @@ class Stack {
         // Stack is empty i.e bottom reached.
         if (this.size == 0) {
             this.stackArray.push(value)
+            this.size = this.size + 1
             return
         }
 
@@ -80,5 +81,6 @@ stack.push(4)
 stack.push(5)
 stack.push(6)
 stack.insertAtBottom(1)
+console.log(stack.size)
 
 stack.displayStack()
