@@ -76,12 +76,12 @@ const findLargestRectangleInHistogram = (arr) => {
         // Breadth of rectangle is the number of histogram bars currently used, caluclated as index of the next smaller element - the previous smaller element - 1
         let breadth = next[i] - prev[i] - 1
 
-        // Calculate area, compare to pre-existing value and store the lareger value
+        // Calculate area, compare to pre-existing value and store the larger value
         let area = length * breadth
+
         maxArea = Math.max(maxArea, area)
     }
 
-    console.log("Largest Rectangle : ", maxArea)
     return maxArea
 }
 

@@ -27,6 +27,7 @@ Problems Added :
     <li>Check if Redundant brackets are present</li>
     <li>Minimum brackets to reverse for valid string</li>
     <li>Find Next Smaller element</li>
-    <li>Find Largest Rectangle possible</li>
+    <li>Find Largest Rectangle possible in Histogram</li>
     <li>Find Celebrity</li>
+    <li>Find Largest Rectangle possible in Binary Matrix</li>
 </ol>
