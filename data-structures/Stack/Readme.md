@@ -28,4 +28,5 @@ Problems Added :
     <li>Minimum brackets to reverse for valid string</li>
     <li>Find Next Smaller element</li>
     <li>Find Largest Rectangle possible</li>
+    <li>Find Celebrity</li>
 </ol>
