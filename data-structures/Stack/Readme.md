@@ -30,4 +30,5 @@ Problems Added :
     <li>Find Largest Rectangle possible in Histogram</li>
     <li>Find Celebrity</li>
     <li>Find Largest Rectangle possible in Binary Matrix</li>
+    <li>Implement N Stacks in an array of size S</li>
 </ol>
