@@ -31,4 +31,5 @@ Problems Added :
     <li>Find Celebrity</li>
     <li>Find Largest Rectangle possible in Binary Matrix</li>
     <li>Implement N Stacks in an array of size S</li>
+    <li>Stack with Minimum element pointer</li>
 </ol>
