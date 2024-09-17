@@ -46,7 +46,7 @@ class NStack {
         // Update the freespot to the next available spot
         this.freespot = this.next[index];
 
-        // Link the new element with the previous top of the Mth stack
+        // Link the new element with the previous element of the Mth stack
         this.next[index] = this.top[m - 1];
 
         // Update the top to the new index
