@@ -78,6 +78,7 @@ class NStack {
         this.freespot = index;
 
         console.log(`\nPopping ${this.arr[index]} from Stack ${m}`)
+        console.log("FreeSpot : ", this.freespot, "\tTop : ", this.top, "\tNext : ", this.next, "\tArray : ", this.arr)
     }
 
     // Print all elements in the Mth stack from top to bottom
