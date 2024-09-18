@@ -19,4 +19,5 @@ Traversal of Binary Tree :
     <li>PreOrder (Root | Left subtree | Right Subtree)</li>
     <li>PostOrder (Left subtree | Right Subtree | Root )</li>
     <li>InOrder ( Left subtree | Root | Right Subtree)</li>
+    <li>Level Order aka Breadth First Search</li>
 </ol>
