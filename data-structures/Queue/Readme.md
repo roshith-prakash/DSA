@@ -40,4 +40,6 @@ Problems Added :
     <li>Find First negative integer in window of size K.</li>
     <li>Reverse First K elements in Queue.</li>
     <li>Find first non repeating character in stream.</li>
+    <li>Find starting point for circular tour.</li>
+    <li>Interleave two halves of queue</li>
 </ol>
