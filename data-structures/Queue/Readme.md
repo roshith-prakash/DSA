@@ -42,4 +42,5 @@ Problems Added :
     <li>Find first non repeating character in stream.</li>
     <li>Find starting point for circular tour.</li>
     <li>Interleave two halves of queue</li>
+    <li>K Queues in Array</li>
 </ol>
