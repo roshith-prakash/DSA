@@ -4,6 +4,7 @@ class SpecialStack {
         this.mini = Infinity;  // Initialize with a value larger than any possible stack element
     }
 
+    // Push data into the stack.
     push(data) {
         // When stack is empty, add element to stack and initialise min val as current val
         if (this.stackArray.length === 0) {
@@ -23,15 +24,22 @@ class SpecialStack {
         }
     }
 
+    // Pop an element from the stack
     pop() {
+        // If stack is empty, return -1
         if (this.stackArray.length === 0) {
             return -1;  // Stack is empty
         }
 
+        // Get element at top
         let curr = this.stackArray.pop();
+
+        // If top element is larger, directly return it
         if (curr > this.mini) {
             return curr;
-        } else {
+        }
+        // If top element is smaller, calculate the previousMin value
+        else {
             let prevMin = this.mini;
             let val = 2 * this.mini - curr;
             this.mini = val;
@@ -39,6 +47,7 @@ class SpecialStack {
         }
     }
 
+    // Return the top most element OR min depending on which is larger
     top() {
         if (this.stackArray.length === 0) {
             return -1;  // Stack is empty
@@ -52,11 +61,12 @@ class SpecialStack {
         }
     }
 
+    // Return true if array is empty
     isEmpty() {
         return this.stackArray.length === 0;
     }
 
-
+    // Return this.min
     getMin() {
         if (this.stackArray.length === 0) {
             return -1;  // Stack is empty

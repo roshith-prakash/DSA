@@ -32,3 +32,10 @@ Additional operations (DE-Queue):
     <li>Push from front (Enqueue)</li>
     <li>Pop from back (dequeue)</li>
 </ol>
+
+Problems Added : 
+
+<ol>
+    <li>Reverse A Queue.</li>
+    <li>Find First negative integer in window of size K.</li>
+</ol>
