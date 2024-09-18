@@ -43,4 +43,5 @@ Problems Added :
     <li>Find starting point for circular tour.</li>
     <li>Interleave two halves of queue</li>
     <li>K Queues in Array</li>
+    <li>Sum of Min and Max element in Windows of size k</li>
 </ol>
