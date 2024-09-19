@@ -26,4 +26,6 @@ Problems Added:
 <ol>
     <li>Build Tree from Level Order</li>
     <li>Count Leaf Nodes</li>
+    <li>Height of Binary Tree</li>
+    <li>Diameter of Binary Tree</li>
 </ol>

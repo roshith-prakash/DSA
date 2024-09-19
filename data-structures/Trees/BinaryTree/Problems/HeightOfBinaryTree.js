@@ -1,4 +1,4 @@
-// Count the number of leaf nodes in the tree
+// Calculate the height of a binary tree
 
 // Node to represent a singular element in the tree
 class Node {
@@ -9,26 +9,6 @@ class Node {
     }
 }
 
-// In order traversal of binary tree.
-// Prints in order of : Left Subtree | Root | Right Subtree
-const inOrder = (head, counter) => {
-    // Traverse the tree to find leaf nodes
-
-    if (head == null) {
-        return counter
-    }
-
-    inOrder(head.left, counter)
-
-    // If both left and right child is Null (leaf node), add to count
-    if (!head.left && !head.right) {
-        counter.count = counter.count + 1
-    }
-
-    inOrder(head.right, counter)
-
-    return counter
-}
 
 // Class for Binary Tree
 class BinaryTree {
@@ -61,33 +41,47 @@ class BinaryTree {
         }
     }
 
-    // Function to count leaf nodes
-    countLeafNodes() {
-        return inOrder(this.head, { count: 0 })
+    height(node) {
+        // When null node is reached, return 0
+        if (node == null) {
+            return 0
+        }
+
+        // Get height of left subtree
+        let left = this.height(node?.left)
+        // Get height of right subtree
+        let right = this.height(node?.right)
+
+        // Get maximum of two and add 1 (for current node)
+        let height = Math.max(left, right) + 1
+
+        // Return answer
+        return height
     }
 
 }
 
+// ------------------------------------------------------------------------
+
+// BST used in the example:
+// 
 //         50
 //        /   \
 //      30     70
-//     /      /  \
-//   20      60   80
-
+//            /  \
+//           60   80
 
 const bt = new BinaryTree()
 const bt1 = bt.createNode(50)
 const bt2 = bt.createNode(30)
 const bt3 = bt.createNode(70)
-const bt4 = bt.createNode(20)
-const bt6 = bt.createNode(60)
-const bt7 = bt.createNode(80)
+const bt4 = bt.createNode(60)
+const bt5 = bt.createNode(80)
 
 bt.inititializeHead(bt1)
 bt.addToLeft(bt1, bt2)
 bt.addToRight(bt1, bt3)
-bt.addToLeft(bt2, bt4)
-bt.addToLeft(bt3, bt6)
-bt.addToRight(bt3, bt7)
+bt.addToLeft(bt3, bt4)
+bt.addToRight(bt3, bt5)
 
-console.log(bt.countLeafNodes())
+console.log(bt.height(bt.head))
