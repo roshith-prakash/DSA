@@ -28,4 +28,5 @@ Problems Added:
     <li>Count Leaf Nodes</li>
     <li>Height of Binary Tree</li>
     <li>Diameter of Binary Tree</li>
+    <li>Check if Binary Tree is balanced</li>
 </ol>

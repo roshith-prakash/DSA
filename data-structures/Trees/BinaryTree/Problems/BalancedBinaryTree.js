@@ -1,4 +1,5 @@
-// Calculate the height of a binary tree
+// Check if tree is a balanced tree.
+// Balance : Difference of heights of left and right subtree is not more than one for all nodes.
 
 // Node to represent a singular element in the tree
 class Node {
@@ -59,6 +60,32 @@ class BinaryTree {
         return height
     }
 
+    // Check if tree is balanced
+    isBalanced(temp) {
+
+        // If root is Null, return true
+        if (temp == null) {
+            return { balanced: true, height: 0 }
+        }
+
+        // Check if left subtree is balanced
+        let left = this.isBalanced(temp?.left)
+        // Check if right subtree is balanced
+        let right = this.isBalanced(temp?.right)
+
+        // Get difference in heights and check it is at most 1
+        let diff = Math.abs(left.height - right.height) <= 1
+
+        // If all are true, tree is balanced
+        if (left.balanced && right.balanced && diff) {
+            return { balanced: true, height: Math.max(left.height, right.height) + 1 }
+        }
+        // If not, tree is not balanced
+        else {
+            return { balanced: false, height: Math.max(left.height, right.height) + 1 }
+        }
+    }
+
 }
 
 // ------------------------------------------------------------------------
@@ -70,6 +97,8 @@ class BinaryTree {
 //      30     70
 //            /  \
 //           60   80
+//                  \
+//                   90
 
 const bt = new BinaryTree()
 const bt1 = bt.createNode(50)
@@ -77,11 +106,13 @@ const bt2 = bt.createNode(30)
 const bt3 = bt.createNode(70)
 const bt4 = bt.createNode(60)
 const bt5 = bt.createNode(80)
+const bt6 = bt.createNode(90)
 
 bt.inititializeHead(bt1)
 bt.addToLeft(bt1, bt2)
 bt.addToRight(bt1, bt3)
 bt.addToLeft(bt3, bt4)
 bt.addToRight(bt3, bt5)
+bt.addToRight(bt5, bt6)
 
-console.log(bt.height(bt.head))
+console.log(bt.isBalanced(bt.head))
