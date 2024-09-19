@@ -21,3 +21,9 @@ Traversal of Binary Tree :
     <li>InOrder ( Left subtree | Root | Right Subtree)</li>
     <li>Level Order aka Breadth First Search</li>
 </ol>
+
+Problems Added:
+<ol>
+    <li>Build Tree from Level Order</li>
+    <li>Count Leaf Nodes</li>
+</ol>
