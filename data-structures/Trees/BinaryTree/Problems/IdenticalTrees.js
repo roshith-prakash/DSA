@@ -39,51 +39,6 @@ class BinaryTree {
             node1.right = node2
         }
     }
-
-    height(node) {
-        // When null node is reached, return 0
-        if (node == null) {
-            return 0
-        }
-
-        // Get height of left subtree
-        let left = this.height(node?.left)
-        // Get height of right subtree
-        let right = this.height(node?.right)
-
-        // Get maximum of two and add 1 (for current node)
-        let height = Math.max(left, right) + 1
-
-        // Return answer
-        return height
-    }
-
-    // Check if tree is balanced
-    isBalanced(temp) {
-
-        // If root is Null, return true
-        if (temp == null) {
-            return { balanced: true, height: 0 }
-        }
-
-        // Check if left subtree is balanced
-        let left = this.isBalanced(temp?.left)
-        // Check if right subtree is balanced
-        let right = this.isBalanced(temp?.right)
-
-        // Get difference in heights and check it is at most 1
-        let diff = Math.abs(left.height - right.height) <= 1
-
-        // If all are true, tree is balanced
-        if (left.balanced && right.balanced && diff) {
-            return { balanced: true, height: Math.max(left.height, right.height) + 1 }
-        }
-        // If not, tree is not balanced
-        else {
-            return { balanced: false, height: Math.max(left.height, right.height) + 1 }
-        }
-    }
-
 }
 
 const checkIdentical = (r1, r2) => {

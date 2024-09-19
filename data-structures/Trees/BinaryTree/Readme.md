@@ -30,4 +30,5 @@ Problems Added:
     <li>Diameter of Binary Tree</li>
     <li>Check if Binary Tree is balanced</li>
     <li>Check if trees are identical</li>
+    <li>Check if all nodes in tree are sum of their subtrees</li>
 </ol>
