@@ -29,4 +29,5 @@ Problems Added:
     <li>Height of Binary Tree</li>
     <li>Diameter of Binary Tree</li>
     <li>Check if Binary Tree is balanced</li>
+    <li>Check if trees are identical</li>
 </ol>
