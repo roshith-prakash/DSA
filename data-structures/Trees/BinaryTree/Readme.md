@@ -32,4 +32,5 @@ Problems Added:
     <li>Check if trees are identical</li>
     <li>Check if all nodes in tree are sum of their subtrees</li>
     <li>ZigZag Traversal of Binary Tree</li>
+    <li>Boundary Traversal of Binary Tree</li>
 </ol>
