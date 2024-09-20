@@ -35,4 +35,7 @@ Problems Added:
     <li>Boundary Traversal of Binary Tree</li>
     <li>Vertical Traversal of Binary Tree</li>
     <li>Top View of Binary Tree</li>
+    <li>Bottom View of Binary Tree</li>
+    <li>Left View of Binary Tree</li>
+    <li>Right View of Binary Tree</li>
 </ol>

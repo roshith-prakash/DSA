@@ -1,5 +1,5 @@
 // The task is to print the bottom view of binary tree. Bottom view of a binary tree is the set of nodes visible when the tree is viewed from the bottom. 
-// Any node with same distance is hidden by node from upper level.
+// Any node with same distance is hidden by node from bottom level.
 // Use same logic as vertical traversal.
 
 // Node to represent a singular element in the tree
