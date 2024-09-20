@@ -1,5 +1,6 @@
-// Given a Binary Tree, find the vertical traversal of it starting from the leftmost level to the rightmost level.
-// If there are multiple nodes passing through a vertical line, then they should be printed as they appear in level order traversal of the tree.
+// The task is to print the top view of binary tree.Top view of a binary tree is the set of nodes visible when the tree is viewed from the top. 
+// Any node with same distance is hidden by node from upper level.
+// Use same logic as vertical traversal.
 
 // Node to represent a singular element in the tree
 class Node {
@@ -13,24 +14,20 @@ class Node {
 // Logic Used: 
 // Imagine a number line. IF root is 0, left subtree is at -1 and right subtree is at +1
 // So we start at the head / root of the tree with the distance as 0 and call the function recursively with for left and right subtree with -1 and +1 distance respectively.
-
-const verticalTraversal = (root, map, distance) => {
+const topView = (root, map, distance) => {
+    // If null, return map
     if (root == null) {
         return map
     }
 
-    // If array is already present, push value into array
-    if (map[distance]) {
-        map[distance].push(root.value)
-    }
-    // Else initalize array with node value
-    else {
-        map[distance] = [root.value]
+    // If element is not already present, add it to the map
+    if (!map[distance]) {
+        map[distance] = root.value
     }
 
-
-    verticalTraversal(root?.left, map, distance - 1)
-    verticalTraversal(root?.right, map, distance + 1)
+    // Call function recursively for left and right subtree
+    topView(root?.left, map, distance - 1)
+    topView(root?.right, map, distance + 1)
 
     return map
 }
@@ -71,11 +68,11 @@ class BinaryTree {
         }
     }
 
-    verticalTraversal() {
+    topView() {
         // Map to be used to collect vertical nodes  
         let map = {}
         // Get the map with the vertical values
-        let traversedMap = verticalTraversal(this.head, map, 0)
+        let traversedMap = topView(this.head, map, 0)
         // Array to store answer 
         let arr = []
 
@@ -84,7 +81,7 @@ class BinaryTree {
             .keys(traversedMap)
             .sort((a, b) => parseInt(a) - parseInt(b))
             .forEach(x => {
-                arr.push(...traversedMap[x])
+                arr.push(traversedMap[x])
             })
 
 
@@ -97,8 +94,8 @@ class BinaryTree {
 //      2       3
 //     /  \    /  \
 //   4     5  6     7
-//             \     \
-//              8     9
+
+// Answer :  4 2 1 3 7
 
 const bt = new BinaryTree()
 const bt1 = bt.createNode(1)
@@ -108,9 +105,6 @@ const bt4 = bt.createNode(4)
 const bt5 = bt.createNode(5)
 const bt6 = bt.createNode(6)
 const bt7 = bt.createNode(7)
-const bt8 = bt.createNode(8)
-const bt9 = bt.createNode(9)
-
 
 bt.inititializeHead(bt1)
 
@@ -123,7 +117,4 @@ bt.addToRight(bt2, bt5)
 bt.addToLeft(bt3, bt6)
 bt.addToRight(bt3, bt7)
 
-bt.addToRight(bt6, bt8)
-bt.addToRight(bt7, bt9)
-
-console.log(bt.verticalTraversal())
+console.log(bt.topView())

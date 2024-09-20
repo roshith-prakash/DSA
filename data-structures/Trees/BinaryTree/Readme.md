@@ -34,4 +34,5 @@ Problems Added:
     <li>ZigZag Traversal of Binary Tree</li>
     <li>Boundary Traversal of Binary Tree</li>
     <li>Vertical Traversal of Binary Tree</li>
+    <li>Top View of Binary Tree</li>
 </ol>
