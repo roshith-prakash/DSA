@@ -43,4 +43,6 @@ Problems Added:
     <li>K Sum Paths</li>
     <li>K-th Ancestor of Node</li>
     <li>Maximum sum of non adjacent nodes</li>
+    <li>Build Tree from InOrder and PreOrder</li>
+    <li>Build Tree from InOrder and PostOrder</li>
 </ol>
