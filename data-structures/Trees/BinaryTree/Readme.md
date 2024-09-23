@@ -39,4 +39,8 @@ Problems Added:
     <li>Left View of Binary Tree</li>
     <li>Right View of Binary Tree</li>
     <li>Sum of nodes on the longest Path</li>
+    <li>Lowest Common Ancestor</li>
+    <li>K Sum Paths</li>
+    <li>K-th Ancestor of Node</li>
+    <li>Maximum sum of non adjacent nodes</li>
 </ol>
