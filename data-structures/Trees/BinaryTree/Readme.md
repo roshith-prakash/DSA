@@ -45,4 +45,6 @@ Problems Added:
     <li>Maximum sum of non adjacent nodes</li>
     <li>Build Tree from InOrder and PreOrder</li>
     <li>Build Tree from InOrder and PostOrder</li>
+    <li>Minimum time to burn tree from a target node</li>
+    <li>Morris Traversal - Inorder traversal without recursion</li>
 </ol>
