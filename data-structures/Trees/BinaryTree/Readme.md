@@ -47,4 +47,5 @@ Problems Added:
     <li>Build Tree from InOrder and PostOrder</li>
     <li>Minimum time to burn tree from a target node</li>
     <li>Morris Traversal - Inorder traversal without recursion</li>
+    <li>Flatten Binary Tree To Linked List</li>
 </ol>
