@@ -1,5 +1,4 @@
-// Given a BST, convert it to a balanced BST.
-// In a balanced bst, the height of two subtrees does not differ by more than 1
+// Given a preorder traversal, create a BST.
 
 // Node to represent a singular element in the tree
 class Node {
@@ -12,11 +11,11 @@ class Node {
 
 // In order traversal of binary tree.
 // Prints in order of : Left Subtree | Root | Right Subtree
-const inOrder = (head, arr) => {
+const inOrder = (head) => {
     while (head != null) {
-        inOrder(head.left, arr)
-        arr.push(head?.value)
-        inOrder(head.right, arr)
+        inOrder(head.left)
+        console.log({ value: head.value, left: head.left?.value, right: head.right?.value })
+        inOrder(head.right)
         return
     }
 }
@@ -75,23 +74,13 @@ class BST {
     }
 
     // Print inOrder traversal of BST (Sorted values)
-    inOrder(arr) {
-        inOrder(this.head, arr)
+    inOrder() {
+        inOrder(this.head)
     }
 
+    // Prints level order traversal of BST
     levelOrder() {
         levelOrder(this.head)
-    }
-
-    // To get the inorder predecessor of the node
-    // Inorder predecessor of node is the rightmost element of the left subtree
-    getInOrderPredecessor(node) {
-        node = node.left
-        while (node.right != null) {
-            node = node.right
-        }
-
-        return node
     }
 
     // Add a new node inside the BST
@@ -112,7 +101,7 @@ class BST {
             else if (value < node.value && node.left == null) {
                 const newNode = new Node(value, null, null)
                 node.left = newNode
-                return newNode
+                return
             }
             // If value is smaller than node but element is already present in node.left, move to the left subtree
             else if (value < node.value && node.left != null) {
@@ -122,7 +111,7 @@ class BST {
             else if (value > node.value && node.right == null) {
                 const newNode = new Node(value, null, null)
                 node.right = newNode
-                return newNode
+                return
             }
             // If value is greater than node but element is already present in node.right, move to the right subtree
             else if (value > node.value && node.right != null) {
@@ -131,60 +120,49 @@ class BST {
         }
     }
 
-    // Using binary search logic to balance tree - make root as mid of array so that equal (or at max 1 difference) elements are on each side
-    balance(start, end, inorder) {
-        // Base case
-        if (start > end) {
+    // Creating a bst from preorder array
+    createBST(preorder, min, max, index) {
+        // If index is out of bound, return null
+        if (index.index >= preorder.length) {
             return null
         }
 
-        // Get mid of the array for the current stage
-        let mid = Math.floor((start + end) / 2)
-        // Get element from array and create a new node
-        let node = new Node(inorder[mid])
+        // If value at index is out of bounds (min,max), return null
+        if (preorder[index.index] < min || preorder[index.index] > max) {
+            return null
+        }
 
-        // Create left subtree for this node
-        node.left = this.balance(start, mid - 1, inorder)
-        // Create right subtree for this node
-        node.right = this.balance(mid + 1, end, inorder)
+        // Create a new node with value at index
+        let node = new Node(preorder[index.index])
+        // Increment index
+        index.index++
 
+        // Create left subtree 
+        node.left = this.createBST(preorder, min, node.value, index)
+        // Create right subtree
+        node.right = this.createBST(preorder, node.value, max, index)
+
+        // Return node
         return node
     }
 
-    // Wrapper function - converts BST to a balanced BST
-    convertToBalancedBST() {
-        // To store inorder values
-        let inorder = []
+    // Wrapper function
+    preorderToBST(arr) {
+        // Min value - low bound
+        let min = Number.MIN_VALUE
+        // Max value - high bound
+        let max = Number.MAX_VALUE
+        // Index of current element
+        let index = { index: 0 }
 
-        // Populate array with sorted values
-        this.inOrder(inorder)
-
-        // Change head to node returned by balance function
-        this.head = this.balance(0, inorder.length - 1, inorder)
+        // Create bst and set its head
+        this.head = this.createBST(arr, min, max, index)
     }
 
 }
 
-const testBST = () => {
+let bst = new BST()
 
-    const bst = new BST();
+bst.preorderToBST([12, 7, 3, 10, 15, 13, 18])
 
-    // Inserting nodes to create the tree structure from the image
-    bst.addNode(bst.head, 10); // Root
-    bst.addNode(bst.head, 8);  // Left child of 10
-    bst.addNode(bst.head, 12); // Right child of 10
-    bst.addNode(bst.head, 4);  // Left child of 8
-    bst.addNode(bst.head, 16); // Right child of 12
-    bst.addNode(bst.head, 2);  // Left child of 4
-    bst.addNode(bst.head, 20); // Right child of 16
-
-
-    bst.levelOrder()
-
-    bst.convertToBalancedBST()
-
-    bst.levelOrder()
-
-}
-
-testBST()
+bst.levelOrder()

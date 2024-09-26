@@ -1,5 +1,4 @@
-// Given a BST, convert it to a balanced BST.
-// In a balanced bst, the height of two subtrees does not differ by more than 1
+// Given two BSTs, merge them into a singular BST
 
 // Node to represent a singular element in the tree
 class Node {
@@ -131,8 +130,8 @@ class BST {
         }
     }
 
-    // Using binary search logic to balance tree - make root as mid of array so that equal (or at max 1 difference) elements are on each side
-    balance(start, end, inorder) {
+    // Using binary search logic to build tree from inorder traversal
+    inorderToBST(start, end, inorder) {
         // Base case
         if (start > end) {
             return null
@@ -144,46 +143,111 @@ class BST {
         let node = new Node(inorder[mid])
 
         // Create left subtree for this node
-        node.left = this.balance(start, mid - 1, inorder)
+        node.left = this.inorderToBST(start, mid - 1, inorder)
         // Create right subtree for this node
-        node.right = this.balance(mid + 1, end, inorder)
+        node.right = this.inorderToBST(mid + 1, end, inorder)
 
         return node
     }
 
-    // Wrapper function - converts BST to a balanced BST
-    convertToBalancedBST() {
-        // To store inorder values
-        let inorder = []
+    // Merge Two BSTs
+    mergeTwoBST(head1, head2) {
+        // To store inorder values for both BSTs
+        let inorder1 = []
+        let inorder2 = []
+
+        // Array to merge BSTs in a sorted way (creates inorder for merged BST)
+        let mergedArray = []
 
         // Populate array with sorted values
-        this.inOrder(inorder)
+        inOrder(head1, inorder1)
+        // Populate array with sorted values
+        inOrder(head2, inorder2)
 
-        // Change head to node returned by balance function
-        this.head = this.balance(0, inorder.length - 1, inorder)
+        // Indices
+        let i = 0
+        let j = 0
+        let k = 0
+
+        // While both indices are within bound
+        while (i < inorder1.length && j < inorder2.length) {
+            // If value in first bst is smaller, add that to merged array
+            if (inorder1[i] < inorder2[j]) {
+                mergedArray[k] = inorder1[i]
+                k++
+                i++
+            }
+            // If value in second bst is smaller, add that to merged array
+            else {
+                mergedArray[k] = inorder2[j]
+                k++
+                j++
+            }
+        }
+
+        // If values still exist in Array for first bst, add them to merged array
+        while (i < inorder1.length) {
+            mergedArray[k] = inorder1[i]
+            k++
+            i++
+        }
+
+        // If values still exist in Array for second bst, add them to merged array
+        while (j < inorder2.length) {
+            mergedArray[k] = inorder2[j]
+            k++
+            j++
+        }
+
+        // Create a BST using the inorder mergedArray - Change head to node returned by inorderToBST function
+        this.head = this.inorderToBST(0, mergedArray.length - 1, mergedArray)
     }
 
 }
 
 const testBST = () => {
 
-    const bst = new BST();
 
-    // Inserting nodes to create the tree structure from the image
-    bst.addNode(bst.head, 10); // Root
-    bst.addNode(bst.head, 8);  // Left child of 10
-    bst.addNode(bst.head, 12); // Right child of 10
-    bst.addNode(bst.head, 4);  // Left child of 8
-    bst.addNode(bst.head, 16); // Right child of 12
-    bst.addNode(bst.head, 2);  // Left child of 4
-    bst.addNode(bst.head, 20); // Right child of 16
+    //         50
+    //        /   \
+    //      30     70
+    //     /  \   /  \
+    //   20   40 60   80
 
+    const bst1 = new BST()
+    bst1.addNode(bst1.head, 50)
+    bst1.addNode(bst1.head, 30)
+    bst1.addNode(bst1.head, 70)
+    bst1.addNode(bst1.head, 20)
+    bst1.addNode(bst1.head, 40)
+    bst1.addNode(bst1.head, 60)
+    bst1.addNode(bst1.head, 80)
 
-    bst.levelOrder()
+    bst1.levelOrder()
 
-    bst.convertToBalancedBST()
+    //         12
+    //       /   \
+    //      7     15
+    //     / \   /  \
+    //    3  10 13   18
 
-    bst.levelOrder()
+    const bst2 = new BST();
+
+    bst2.addNode(bst2.head, 12);
+    bst2.addNode(bst2.head, 7);
+    bst2.addNode(bst2.head, 3);
+    bst2.addNode(bst2.head, 10);
+    bst2.addNode(bst2.head, 7);
+    bst2.addNode(bst2.head, 15);
+    bst2.addNode(bst2.head, 13)
+    bst2.addNode(bst2.head, 18);
+
+    bst2.levelOrder()
+
+    // Merging BSTs into bst1
+    bst1.mergeTwoBST(bst1.head, bst2.head)
+
+    bst1.levelOrder()
 
 }
 

@@ -17,4 +17,6 @@ Problems Added:
     <li>Two Sum in BST</li>
     <li>Flatten BST to a Sorted Linked List</li>
     <li>Convert a BST to a Balanced BST</li>
+    <li>Create BST from Preorder</li>
+    <li>Merge Two BSTs </li>
 </ol>
