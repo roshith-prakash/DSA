@@ -20,6 +20,54 @@ const inOrder = (head) => {
     }
 }
 
+// Also known as Breadth First Search
+const levelOrder = (head) => {
+    console.log("\n")
+
+    // Create a Queue
+    const queue = []
+
+    // Push root node into queue
+    queue.push(head)
+    // Push null whenever a level is completed (since root only has one element; add null)
+    queue.push(null)
+
+    // While queue is not empty
+    while (queue.length) {
+
+        // Get the node at the front of queue
+        let temp = queue[0]
+        // Dequeue node
+        queue.shift()
+
+        // If value at front was null, level was completed
+        if (temp == null) {
+            // Add new line to signify new level
+            console.log("\n")
+            // If queue still has elements, push null
+            if (queue.length) {
+                queue.push(null)
+            }
+        }
+        // If value at front is a node
+        else {
+            // Print node value
+            process.stdout.write(String(temp?.value) + " ")
+
+            // Add left node to queue
+            if (temp?.left) {
+                queue.push(temp?.left)
+            }
+
+            // Add right node to queue
+            if (temp?.right) {
+                queue.push(temp?.right)
+            }
+        }
+    }
+}
+
+
 // Class for Binary Search Tree
 class BST {
     constructor() {
@@ -40,6 +88,10 @@ class BST {
         }
 
         return node
+    }
+
+    levelOrder() {
+        levelOrder(this.head)
     }
 
     // Search for the value in BST
@@ -175,12 +227,12 @@ const testBST = () => {
     bst.addNode(bst.head, 18);
 
     console.log("\n\nIn-order traversal:\n\n");
-    bst.inOrder();
+    bst.levelOrder();
 
     console.log("\n\nDeleting node with value 15\n\n");
     bst.deleteNode(bst.head, 15);
     console.log("\n\nIn-order traversal after deletion:\n\n");
-    bst.inOrder();
+    bst.levelOrder();
 
     console.log("\n\nSearching for node with value 12\n\n");
     const foundNode = bst.search(bst.head, 12);
