@@ -8,3 +8,10 @@ Properties of BST:
     <li>No duplicate nodes are present in the tree. (Node with same value)</li>
     <li>InOrder Traversal of a BST gives a ascending sorted array.</li>
 <ol>
+
+Problems Added:
+<ol>
+    <li>Kth Smallest element in BST</li>
+    <li>Inorder predecessor and successor of element in BST</li>
+    <li>Least common ancestor of two elements in BST</li>
+</ol>
