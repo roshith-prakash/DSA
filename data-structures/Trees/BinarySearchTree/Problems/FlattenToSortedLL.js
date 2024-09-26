@@ -1,4 +1,4 @@
-// Find the lowest common ancestor of two elements in BST.
+// Given a BST, flatten it to a Sorted Linked List
 
 // Node to represent a singular element in the tree
 class Node {
@@ -11,11 +11,11 @@ class Node {
 
 // In order traversal of binary tree.
 // Prints in order of : Left Subtree | Root | Right Subtree
-const inOrder = (head) => {
+const inOrder = (head, arr) => {
     while (head != null) {
-        inOrder(head.left)
-        console.log(head?.value)
-        inOrder(head.right)
+        inOrder(head.left, arr)
+        arr.push(head)
+        inOrder(head.right, arr)
         return
     }
 }
@@ -27,8 +27,8 @@ class BST {
     }
 
     // Print inOrder traversal of BST (Sorted values)
-    inOrder() {
-        inOrder(this.head)
+    inOrder(arr) {
+        inOrder(this.head, arr)
     }
 
     // To get the inorder predecessor of the node
@@ -40,27 +40,6 @@ class BST {
         }
 
         return node
-    }
-
-    // Search for the value in BST
-    search(node, value) {
-        // If node is null, value is not present in Tree
-        if (node == null) {
-            console.log(`Node with value ${value} is not present.`)
-            return
-        }
-        // If node = value, required Node has been found
-        if (node.value == value) {
-            return node
-        }
-        // If value is smaller than node, search left subtree
-        else if (node.value > value) {
-            return this.search(node.left, value)
-        }
-        // If value is larger than node, search the right subtree
-        else {
-            return this.search(node.right, value)
-        }
     }
 
     // Add a new node inside the BST
@@ -100,29 +79,36 @@ class BST {
         }
     }
 
-    // To get the lowest common ancestor for two nodes
-    lowestCommonAncestor(node, a, b) {
+    // Flatten BST to a sorted LL
+    flattenToSortedLinkedList() {
+        let inorder = []
+        // Get inorder array (sorted due to bst principle)
+        this.inOrder(inorder)
 
-        // If node value is smaller than both A & B, LCA exists in right subtree
-        if (node?.value < a?.value && node?.value < b?.value) {
-            return this.lowestCommonAncestor(node?.right, a, b)
+        for (let i = 0; i < inorder.length; i++) {
+            // Change left pointer to null
+            inorder[i].left = null
+            // If next element in inorder exists, point to next element
+            if (inorder[i + 1])
+                inorder[i].right = inorder[i + 1]
+            // Else point to null
+            else
+                inorder[i].right = null
         }
 
-        // If node value is larger than both A & B, LCA exists in left subtree
-        if (node?.value > a?.value && node?.value > b?.value) {
-            return this.lowestCommonAncestor(node?.left, a, b)
-        }
+        return inorder[0]
+    }
 
-        // If node value is larger than A & smaller than B, current node is LCA
-        if (node?.value > a?.value && node?.value < b?.value) {
-            return node
-        }
+    // Traverse Linked List
+    traverseLL(root) {
+        let node = root
 
-        // If node value is smaller than A & larger than B, current node is LCA
-        if (node?.value < a?.value && node?.value > b?.value) {
-            return node
+        while (node) {
+            console.log(node?.value)
+            node = node?.right
         }
     }
+
 }
 
 const testBST = () => {
@@ -155,10 +141,9 @@ const testBST = () => {
     bst.addNode(bst.head, 17); // Level 4
     bst.addNode(bst.head, 20); // Level 4
 
-    let node1 = bst.search(bst.head, 14)
-    let node2 = bst.search(bst.head, 17)
+    let root = bst.flattenToSortedLinkedList()
+    bst.traverseLL(root)
 
-    console.log("Lowest Common Ancestor : ", bst.lowestCommonAncestor(bst.head, node1, node2)?.value)
 }
 
 testBST()

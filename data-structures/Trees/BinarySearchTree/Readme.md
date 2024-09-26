@@ -14,4 +14,7 @@ Problems Added:
     <li>Kth Smallest element in BST</li>
     <li>Inorder predecessor and successor of element in BST</li>
     <li>Least common ancestor of two elements in BST</li>
+    <li>Two Sum in BST</li>
+    <li>Flatten BST to a Sorted Linked List</li>
+    <li>Convert a BST to a Balanced BST</li>
 </ol>

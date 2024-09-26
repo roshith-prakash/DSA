@@ -1,4 +1,4 @@
-// Find the lowest common ancestor of two elements in BST.
+// Find two elements in tree such that their sum is K.
 
 // Node to represent a singular element in the tree
 class Node {
@@ -11,11 +11,11 @@ class Node {
 
 // In order traversal of binary tree.
 // Prints in order of : Left Subtree | Root | Right Subtree
-const inOrder = (head) => {
+const inOrder = (head, arr) => {
     while (head != null) {
-        inOrder(head.left)
-        console.log(head?.value)
-        inOrder(head.right)
+        inOrder(head.left, arr)
+        arr.push(head?.value)
+        inOrder(head.right, arr)
         return
     }
 }
@@ -27,8 +27,8 @@ class BST {
     }
 
     // Print inOrder traversal of BST (Sorted values)
-    inOrder() {
-        inOrder(this.head)
+    inOrder(arr) {
+        inOrder(this.head, arr)
     }
 
     // To get the inorder predecessor of the node
@@ -100,29 +100,38 @@ class BST {
         }
     }
 
-    // To get the lowest common ancestor for two nodes
-    lowestCommonAncestor(node, a, b) {
+    twoSum(target) {
+        let inorder = []
 
-        // If node value is smaller than both A & B, LCA exists in right subtree
-        if (node?.value < a?.value && node?.value < b?.value) {
-            return this.lowestCommonAncestor(node?.right, a, b)
+        // Array will be sorted (principle of BST)
+        this.inOrder(inorder)
+
+        // Start index
+        let i = 0
+        // End index
+        let j = inorder.length - 1
+
+        // Two pointer approach - one from start of array and one from end of array
+        while (i < j) {
+            let sum = inorder[i] + inorder[j]
+
+            // Required sum is found
+            if (sum == target) {
+                return [inorder[i], inorder[j]]
+            }
+            // Sum is larger than target (decrease j so it points to a smaller element)
+            else if (sum > target) {
+                j--
+            }
+            // Sum is smaller than target (increase i so it points to a larger element)
+            else {
+                i++
+            }
         }
 
-        // If node value is larger than both A & B, LCA exists in left subtree
-        if (node?.value > a?.value && node?.value > b?.value) {
-            return this.lowestCommonAncestor(node?.left, a, b)
-        }
-
-        // If node value is larger than A & smaller than B, current node is LCA
-        if (node?.value > a?.value && node?.value < b?.value) {
-            return node
-        }
-
-        // If node value is smaller than A & larger than B, current node is LCA
-        if (node?.value < a?.value && node?.value > b?.value) {
-            return node
-        }
+        return false
     }
+
 }
 
 const testBST = () => {
@@ -155,10 +164,8 @@ const testBST = () => {
     bst.addNode(bst.head, 17); // Level 4
     bst.addNode(bst.head, 20); // Level 4
 
-    let node1 = bst.search(bst.head, 14)
-    let node2 = bst.search(bst.head, 17)
 
-    console.log("Lowest Common Ancestor : ", bst.lowestCommonAncestor(bst.head, node1, node2)?.value)
+    console.log("Two elements with sum 32 is present : ", bst.twoSum(32))
 }
 
 testBST()
