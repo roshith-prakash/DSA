@@ -7,7 +7,7 @@ Properties of BST:
     <li>Left & right subtrees are both BST.</li>
     <li>No duplicate nodes are present in the tree. (Node with same value)</li>
     <li>InOrder Traversal of a BST gives a ascending sorted array.</li>
-<ol>
+</ol>
 
 Problems Added:
 <ol>
@@ -18,5 +18,6 @@ Problems Added:
     <li>Flatten BST to a Sorted Linked List</li>
     <li>Convert a BST to a Balanced BST</li>
     <li>Create BST from Preorder</li>
-    <li>Merge Two BSTs </li>
+    <li>Merge Two BSTs - I (Inorder Array approach) </li>
+    <li>Merge Two BSTs - II (Doubly Linked List approach) </li>
 </ol>
