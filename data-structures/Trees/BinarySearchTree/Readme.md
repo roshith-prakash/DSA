@@ -20,4 +20,5 @@ Problems Added:
     <li>Create BST from Preorder</li>
     <li>Merge Two BSTs - I (Inorder Array approach) </li>
     <li>Merge Two BSTs - II (Doubly Linked List approach) </li>
+    <li>Largest BST in a Binary Tree </li>
 </ol>
