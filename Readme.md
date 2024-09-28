@@ -30,6 +30,7 @@
             <li>Merge Sort</li>
             <li>Quick Sort</li>
             <li>Selection Sort</li>
+            <li>Heap Sort (In Heap sub-folder in data-structures folder)</li>
         </ul>
     </li>
         <li>Other Algorithms:
