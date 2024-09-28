@@ -16,16 +16,20 @@ class Heap {
         let left = 2 * i
         let right = (2 * i) + 1
 
+        // If parent is smaller than child, change largest index to child
         if (left <= size && arr[largest] < arr[left]) {
             largest = left
         }
 
+        // If parent is smaller than child, change largest index to child
         if (right <= size && arr[largest] < arr[right]) {
             largest = right
         }
 
+        // If largest is not parent, swap parent and child
         if (largest != i) {
             [arr[largest], arr[i]] = [arr[i], arr[largest]]
+            // Call function for child
             this.max_heapify(arr, size, largest)
         }
     }
@@ -70,6 +74,7 @@ for (let i = 1; i <= size; i++) {
     console.log(arr[i])
 }
 
+// Sort the heap
 heapSort(arr, size)
 
 // Print the sorted heap array
