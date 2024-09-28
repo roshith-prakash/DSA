@@ -17,6 +17,7 @@
     <li>Binary Tree</li>
     <li>Binary Search Tree (BST)</li>
     <li>AVL Tree</li>
+    <li>Heap</li>
 </ul>
       
 <h3>Algorithms:</h3>
