@@ -14,3 +14,15 @@ Heap is a Complete Binary Tree that comes with a heap order property.
         Left child : 2i index
         Right child : 2i + 1 index
         parent : (i/2) index
+
+        In case heap is 0 indexed, left child is 2i + 1 & right child is 2i + 2.
+
+Problems Added:
+<ol>
+    <li>Kth Smallest Element in Array using Heap</li>
+    <li>Kth Largest Element in Array using Heap</li>
+    <li>Is Binary Tree a Max Heap</li>
+    <li>Merge Two binary Max Heaps</li>
+    <li>Minimum cost of ropes</li>
+    <li>BST to Min heap</li>
+</ol>
