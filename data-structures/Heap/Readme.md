@@ -26,4 +26,6 @@ Problems Added:
     <li>Minimum cost of ropes</li>
     <li>BST to Min heap</li>
     <li>Kth Largest Sum of Subarray</li>
+    <li>Merge K sorted arrays</li>
+    <li>Merge K sorted Linked Lists</li>
 </ol>
