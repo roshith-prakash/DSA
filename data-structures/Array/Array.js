@@ -151,7 +151,9 @@ const generateSubArrays = (arr) => {
     };
 
     generateSubsets(0, []);
-    return fullArr;
+
+    // Sorting for easier reading - NOT REQUIRED
+    return fullArr.sort((a, b) => a.length - b.length);
 }
 
 // Array

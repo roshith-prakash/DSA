@@ -32,11 +32,14 @@ class LinkedList {
         }
 
         this.size = this.size + 1
+
+        return
     }
 
     // Add node at start (Make the node the head).
     addNodeAtStart(value) {
         const node = new Node(value, null)
+
         if (this.head) {
             node.next = this.head
             this.head = node
@@ -46,6 +49,8 @@ class LinkedList {
             this.head = node
             this.size = this.size + 1
         }
+
+        return
     }
 
     // Insert a node at the position specified.
@@ -70,14 +75,7 @@ class LinkedList {
             // Index to prev element
             let prev = this.head
 
-            // If only one element is present (head)
-            if (prev.next == null) {
-                const node = new Node(value, null)
-                this.head.next = node
-                this.size = this.size + 1
-            }
-
-            // While position not reached or next elment is not null, increment the position index & go to next node
+            // While position not reached and next elment is not null, increment the position index & go to next node
             while (i < position - 1 && prev.next != null) {
                 prev = prev?.next
                 i++
@@ -228,7 +226,7 @@ function testLinkedList() {
     list.traverse(); // Should print 0, 1, 2, 3
 
     console.log("\nInserting node at position 2:");
-    list.insertAtPosition(1.5, 2);
+    list.insertAtPosition(1.5, 10);
     list.traverse(); // Should print 0, 1.5, 1, 2, 3
 
     console.log("\nRemoving node with value 1.5:");

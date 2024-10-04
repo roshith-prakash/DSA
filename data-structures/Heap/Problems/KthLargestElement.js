@@ -1,4 +1,5 @@
 // Find Kth Largest Element in Heap
+// Use a Min Heap
 
 class Heap {
     // Heap uses 1 based indexing and thus we add a placeholder value for 0th index
@@ -88,6 +89,7 @@ const kthLargestElement = (arr, k) => {
     }
 
     // For the remaining elements, if element is larger than top of heap, delete top and add element to heap
+    // At the end, the largest k elements will be in heap, top of which will be the Kth Largest Element
     for (let i = k; i < arr.length; i++) {
         if (arr[i] > heap.arr[1]) {
             heap.delete()

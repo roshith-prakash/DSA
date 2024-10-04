@@ -1,7 +1,7 @@
 // Heap Sort implementation
 
-// The Class written below implements a Max Heap.
-// max_heapify and min_heapify functions of a class can be directly called by passing an array
+// To sort in ascending order - Max heapify the array and call heapsort with max_heapify function
+// To sort in descending order - Min heapify the array and call heapsort with min_heapify function
 
 class Heap {
 
@@ -10,7 +10,7 @@ class Heap {
         this.arr = [undefined]
     }
 
-    // Convert array to max heap
+    // For an array, this function puts the element at i-th index at its correct position in a Max Heap
     static max_heapify(arr, size, i) {
         let largest = i
         let left = 2 * i
@@ -31,6 +31,30 @@ class Heap {
             [arr[largest], arr[i]] = [arr[i], arr[largest]]
             // Call function for child
             this.max_heapify(arr, size, largest)
+        }
+    }
+
+    // For an array, this function puts the element at i-th index at its correct position in a Min Heap
+    static min_heapify(arr, size, i) {
+        let smallest = i
+        let left = 2 * i
+        let right = (2 * i) + 1
+
+        // If parent is larger than child, change smallest index to child
+        if (left <= size && arr[smallest] > arr[left]) {
+            smallest = left
+        }
+
+        // If parent is larger than child, change smallest index to child
+        if (right <= size && arr[smallest] > arr[right]) {
+            smallest = right
+        }
+
+        // If smallest is not parent, swap parent and child
+        if (smallest != i) {
+            [arr[smallest], arr[i]] = [arr[i], arr[smallest]]
+            // Call function for child
+            this.min_heapify(arr, size, smallest)
         }
     }
 }

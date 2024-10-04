@@ -10,7 +10,7 @@ class Node {
     }
 }
 
-// Inorder traversal pushes value inside array
+// Inorder traversal - pushes value inside array
 const inOrder = (head, arr) => {
     if (!head) {
         return
@@ -122,7 +122,9 @@ class BST {
 
     // Converts BST to min heap
     BSTToMinHeap(root, arr, index) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
 
         // Copy index value to root
         root.value = arr[index.index];

@@ -77,7 +77,7 @@ class Heap {
         }
     }
 
-    // Convert array to max heap
+    // For an array, this function puts the element at i-th index at its correct position in a Max Heap
     static max_heapify(arr, size, i) {
         let largest = i
         let left = 2 * i
@@ -101,7 +101,7 @@ class Heap {
         }
     }
 
-    // Convert array to min heap
+    // For an array, this function puts the element at i-th index at its correct position in a Min Heap
     static min_heapify(arr, size, i) {
         let smallest = i
         let left = 2 * i
@@ -168,6 +168,10 @@ heap.printHeap()
 let arr = [undefined, 54, 53, 55, 52, 50]
 // Get the size of the heap (0 index not considered)
 let size = arr.length - 1
+
+
+// When Heapifying an array, anything beyond n/2 is not heapified as they are leaf nodes 
+
 
 // Max Heapify the array
 for (let i = Math.floor(size / 2); i > 0; i--) {

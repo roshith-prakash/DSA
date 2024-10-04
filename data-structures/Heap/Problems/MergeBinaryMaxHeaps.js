@@ -1,5 +1,5 @@
 // Given two binary max heaps, merge them
-// Question is 0 indexed.
+// Heaps are 0 indexed.
 
 class Heap {
     // Convert array to max heap

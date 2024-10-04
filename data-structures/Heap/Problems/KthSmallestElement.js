@@ -1,4 +1,5 @@
 // Find Kth Smallest Element in Heap
+// Use a Max Heap
 
 class Heap {
     // Heap uses 1 based indexing and thus we add a placeholder value for 0th index
@@ -88,6 +89,7 @@ const kthSmallestElement = (arr, k) => {
     }
 
     // For the remaining elements, if element is smaller than top of heap, delete top and add element to heap
+    // At the end, the smallest k elements will be in heap, top of which will be the Kth Smallest Element
     for (let i = k; i < arr.length; i++) {
         if (arr[i] < heap.arr[1]) {
             heap.delete()
