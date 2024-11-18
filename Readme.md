@@ -1,60 +1,64 @@
-<h1>Data Structures And Algorthims implemented in JavaScript.</h1>
+# Data Structures and Algorithms in JavaScript
 
-<h2>Currently Implemented : </h2>
+## 🚀 What's Included
 
-<h3>Data Structures:</h3>
-<ul>
-    <li>Array</li>
-    <li>Singular Linked List</li>
-    <li>Circular Linked List</li>
-    <li>Doubly Linked List</li>
-    <li>Stack (Array)</li>
-    <li>Stack (Linked List)</li>
-    <li>Queue (Array)</li>
-    <li>Queue (Linked List)</li>
-    <li>DEQueue (Double Ended Queue - Array)</li>
-    <li>DEQueue (Double Ended Queue - Linked List)</li>
-    <li>Binary Tree</li>
-    <li>Binary Search Tree (BST)</li>
-    <li>AVL Tree</li>
-    <li>Heap</li>
-</ul>
-      
-<h3>Algorithms:</h3>
-<ul>
-    <li>Sorting Algorithms:
-        <ul>
-            <li>Bubble Sort</li>
-            <li>Count Sort</li>
-            <li>Insertion Sort</li>
-            <li>Merge Sort</li>
-            <li>Quick Sort</li>
-            <li>Selection Sort</li>
-            <li>Heap Sort (In Heap sub-folder of data-structures folder)</li>
-        </ul>
-    </li>
-        <li>Other Algorithms:
-        <ul>
-            <li>Binary Search</li>
-            <li>Binary search based : 
-                <ul>
-                    <li>Aggressive Cows</li>
-                    <li>First & last occurence of element</li>
-                    <li>Painter Partition</li>
-                    <li>Peak element in mountain</li>
-                    <li>Square root of a number</li>
-                </ul>
-            </li>
-            <li>Math : 
-                <ul>
-                    <li>Check for Prime Number</li>
-                    <li>Get Highest Common Factor</li>
-                    <li>Get Least Common Multiple</li>
-                    <li>Get Prime Factors for a number</li>
-                    <li>Get sequence of prime numbers before a number</li>
-                    <li>Sieve of Eratothenes</li>
-                </ul>
-            </li>               
-        </ul>
-    </li>
-</ul>
+This repository contains a comprehensive set of **Data structures** and **Algorithms**, implemented in JavaScript. Dive into structured coding practices while learning core computer science concepts!
+
+---
+
+## 📚 Data Structures
+
+### Linear Data Structures
+- **Array**
+- **Singly Linked List**
+- **Doubly Linked List**
+- **Circular Linked List**
+
+### Stack Implementations
+- Stack (Array-based)
+- Stack (Linked List-based)
+
+### Queue Implementations
+- Queue (Array-based)
+- Queue (Linked List-based)
+- DEQueue (Double-Ended Queue - Array-based)
+- DEQueue (Double-Ended Queue - Linked List-based)
+
+### Tree Structures
+- Binary Tree
+- Binary Search Tree (BST)
+- AVL Tree
+
+### Heap
+- Min/Max Heap
+
+---
+
+## 🧮 Algorithms
+
+### 1. Sorting Algorithms
+- Bubble Sort
+- Count Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- Selection Sort
+- Heap Sort (found in the `Heap` sub-folder)
+
+### 2. Searching Algorithms
+- Binary Search
+
+### 3. Binary Search-Based Problems
+- Aggressive Cows
+- First and Last Occurrence of an Element
+- Painter Partition Problem
+- Peak Element in a Mountain Array
+- Square Root of a Number (Integer)
+
+### 4. Mathematical Algorithms
+- Check for Prime Numbers
+- Compute Highest Common Factor (HCF)
+- Compute Least Common Multiple (LCM)
+- Find Prime Factors of a Number
+- Generate a Sequence of Prime Numbers up to a Given Limit
+- Sieve of Eratosthenes for Efficient Prime Number Generation
