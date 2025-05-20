@@ -2,11 +2,23 @@
 //  Final Amount = Principal amount * (1 + (interest rate / n) ) ^ ( n * number of years)
 //                 where n = no of times interest is compounded per year
 
-const getCompoundInterest = (principal, rate, compoundNum, duration) => {
+const getCompoundInterest = (
+  principal,
+  rate,
+  numberOfTimesCompounded,
+  duration
+) => {
+  let amount =
+    principal *
+    Math.pow(
+      1 + rate / numberOfTimesCompounded,
+      numberOfTimesCompounded * duration
+    );
 
-    let amount = principal * Math.pow((1 + (rate / compoundNum)), compoundNum * duration)
+  return {
+    finalAmount: Number(amount).toFixed(2),
+    interest: Number(amount - principal).toFixed(2),
+  };
+};
 
-    return { finalAmount: amount, interest: amount - principal }
-}
-
-console.log(getCompoundInterest(1000, 0.05, 4, 3))
+console.log(getCompoundInterest(1000, 0.05, 4, 3));
