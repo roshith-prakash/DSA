@@ -46,12 +46,12 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 - Bubble Sort
 - Bucket Sort
 - Count Sort
+- Heap Sort
 - Insertion Sort
 - Merge Sort
 - Quick Sort
 - Radix Sort
 - Selection Sort
-- Heap Sort (found in the `Heap` sub-folder)
 
 ### 2. Searching Algorithms
 

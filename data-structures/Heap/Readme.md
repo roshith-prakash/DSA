@@ -8,7 +8,7 @@ Heap is a Complete Binary Tree that comes with a heap order property.
 
 **Heap uses 1 based indexing** (0th index not considered.)
 
-    Array representation : 
+    Array representation :
 
         Node : i-th index
         Left child : 2i index
@@ -18,6 +18,7 @@ Heap is a Complete Binary Tree that comes with a heap order property.
         In case heap is 0 indexed, left child is 2i + 1 & right child is 2i + 2.
 
 Problems Added:
+
 <ol>
     <li>Kth Smallest Element in Array using Heap</li>
     <li>Kth Largest Element in Array using Heap</li>
@@ -28,5 +29,4 @@ Problems Added:
     <li>Kth Largest Sum of Subarray</li>
     <li>Merge K sorted arrays</li>
     <li>Merge K sorted Linked Lists</li>
-    <!-- <li>Smallest range in K Linked Lists where atleast one element from every list is present</li> -->
 </ol>
