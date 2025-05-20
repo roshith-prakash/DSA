@@ -42,8 +42,6 @@ const radixSort = (nums) => {
     //   [],          []
     // ]
 
-    console.log(buckets);
-
     // The buckets itself are sorted according to the digit place so merge them together.
     nums = [].concat(...buckets);
   }
@@ -51,4 +49,5 @@ const radixSort = (nums) => {
   return nums;
 };
 
-console.log(radixSort([170, 45, 75, 90, 802, 24, 2, 66]));
+const arr = [170, 45, 75, 90, 802, 24, 2, 66];
+console.log(radixSort(arr));

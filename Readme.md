@@ -44,6 +44,7 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 ### 1. Sorting Algorithms
 
 - Bubble Sort
+- Bucket Sort
 - Count Sort
 - Insertion Sort
 - Merge Sort
