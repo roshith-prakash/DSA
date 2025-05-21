@@ -79,3 +79,4 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 - Fractional Knapsack
 - Huffman Coding
 - Job Sequencing
+- Optimal Merge Pattern
