@@ -3,6 +3,8 @@
 // To sort in ascending order - Max heapify the array and call heapsort with max_heapify function
 // To sort in descending order - Min heapify the array and call heapsort with min_heapify function
 
+// Time complexity : O(n log n)
+
 class Heap {
   // Heap uses 1 based indexing and thus we add a placeholder value for 0th index
   constructor() {

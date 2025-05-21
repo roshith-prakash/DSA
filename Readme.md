@@ -73,3 +73,8 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 - Find Prime Factors of a Number
 - Generate a Sequence of Prime Numbers up to a Given Limit
 - Sieve of Eratosthenes for Efficient Prime Number Generation
+
+### 5. Greedy Algorithms
+
+- Fractional Knapsack
+- Huffman Coding
