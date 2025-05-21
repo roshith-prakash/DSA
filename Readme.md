@@ -80,3 +80,4 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 - Huffman Coding
 - Job Sequencing
 - Optimal Merge Pattern
+- Kruskal's Algorithm
