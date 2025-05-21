@@ -81,3 +81,4 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 - Job Sequencing
 - Optimal Merge Pattern
 - Kruskal's Algorithm
+- Prim's Algorithm
