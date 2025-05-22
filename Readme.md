@@ -83,3 +83,5 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 - Kruskal's Algorithm
 - Prim's Algorithm
 - Dijkstra's Algorithm
+
+### 6. Dynamic Programming

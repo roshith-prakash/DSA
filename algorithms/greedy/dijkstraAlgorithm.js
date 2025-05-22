@@ -9,6 +9,8 @@
 //    - Update its neighbors if a shorter path is found.
 // 4. Repeat until all shortest paths are known.
 
+// Time Complexity: O(V log V))
+
 // PriorityQueue class using a simple array and sorting for priority handling
 class PriorityQueue {
   constructor() {
@@ -76,27 +78,14 @@ const dijkstraAlgorithm = (graph, start) => {
   return { distances, previous: prev }; // Return the shortest distances and path tree
 };
 
-/*
-      1
-  A ------- B
-  |         | \
-  |         |  \ 5
-  |         |   \
-  |         |    D
-  4        2    /
-  |         |  /
-  |         | / 1
-  |         |/
-  C --------C
-      
-*/
-
 // Sample graph represented as an adjacency list with weights
 const graph = {
-  A: { B: 1, C: 4 },
-  B: { A: 1, C: 2, D: 5 },
-  C: { A: 4, B: 2, D: 1 },
-  D: { B: 5, C: 1 },
+  A: { B: 2, C: 5 },
+  B: { A: 2, C: 6, D: 1 },
+  C: { A: 5, B: 6, E: 2 },
+  D: { B: 1, E: 1, F: 4 },
+  E: { C: 2, D: 1, F: 3 },
+  F: { D: 4, E: 3 },
 };
 
 // Run the algorithm from node 'A'

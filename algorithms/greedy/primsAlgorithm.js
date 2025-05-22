@@ -7,6 +7,8 @@
 // 5. Add this new vertex and edge to the MST.
 // 6. Repeat steps 3–5 until all vertices are included in the MST.
 
+// Time complexity : O(E log E + V)
+
 class PriorityQueue {
   constructor() {
     this.values = [];
