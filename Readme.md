@@ -82,3 +82,4 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 - Optimal Merge Pattern
 - Kruskal's Algorithm
 - Prim's Algorithm
+- Dijkstra's Algorithm

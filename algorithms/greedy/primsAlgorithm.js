@@ -12,8 +12,8 @@ class PriorityQueue {
     this.values = [];
   }
 
-  enqueue(element, priority) {
-    this.values.push({ element, priority });
+  enqueue(edge, priority) {
+    this.values.push({ edge, priority });
     this.values.sort((a, b) => a.priority - b.priority);
   }
 
@@ -31,74 +31,49 @@ function primMST(graph) {
   const visited = new Set();
   const pq = new PriorityQueue();
 
-  // Start from an arbitrary vertex — let's pick the first key from graph
+  // Pick the first key as starting vertex
   const startVertex = Object.keys(graph)[0];
   visited.add(startVertex);
 
-  // Add all edges from the start vertex to the priority queue
-  graph[startVertex].forEach(({ node, weight }) => {
-    pq.enqueue({ from: startVertex, to: node, weight }, weight);
-  });
+  // Add all edges from startVertex to the priority queue
+  for (let neighbor in graph[startVertex]) {
+    pq.enqueue(
+      { from: startVertex, to: neighbor, weight: graph[startVertex][neighbor] },
+      graph[startVertex][neighbor]
+    );
+  }
 
   while (!pq.isEmpty()) {
-    const { element: edge } = pq.dequeue();
+    const { edge } = pq.dequeue();
     const { to } = edge;
 
     if (!visited.has(to)) {
       visited.add(to);
       MST.push(edge);
 
-      // Add all edges from the newly added vertex to pq if target is unvisited
-      graph[to].forEach(({ node, weight }) => {
-        if (!visited.has(node)) {
-          pq.enqueue({ from: to, to: node, weight }, weight);
+      // Add all edges from the new vertex
+      for (let neighbor in graph[to]) {
+        if (!visited.has(neighbor)) {
+          pq.enqueue(
+            { from: to, to: neighbor, weight: graph[to][neighbor] },
+            graph[to][neighbor]
+          );
         }
-      });
+      }
     }
   }
 
   return MST;
 }
 
-// Example graph (adjacency list)
+// Example usage
 const graph = {
-  A: [
-    { node: "B", weight: 2 },
-    { node: "C", weight: 3 },
-    { node: "D", weight: 1 },
-  ],
-  B: [
-    { node: "A", weight: 2 },
-    { node: "D", weight: 4 },
-    { node: "E", weight: 6 },
-  ],
-  C: [
-    { node: "A", weight: 3 },
-    { node: "F", weight: 7 },
-  ],
-  D: [
-    { node: "A", weight: 1 },
-    { node: "B", weight: 4 },
-    { node: "F", weight: 5 },
-    { node: "G", weight: 2 },
-  ],
-  E: [
-    { node: "B", weight: 6 },
-    { node: "G", weight: 1 },
-  ],
-  F: [
-    { node: "C", weight: 7 },
-    { node: "D", weight: 5 },
-    { node: "G", weight: 8 },
-  ],
-  G: [
-    { node: "D", weight: 2 },
-    { node: "E", weight: 1 },
-    { node: "F", weight: 8 },
-  ],
+  A: { B: 1, C: 4 },
+  B: { A: 1, C: 2, D: 5 },
+  C: { A: 4, B: 2, D: 1 },
+  D: { B: 5, C: 1 },
 };
 
-// Run Prim's algorithm
 const mst = primMST(graph);
 
 console.log("Minimum Spanning Tree edges:");
