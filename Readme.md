@@ -37,6 +37,10 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 
 - Min/Max Heap
 
+### Graph
+
+- BFS / DFS
+
 ---
 
 ## 🧮 Algorithms
@@ -85,3 +89,6 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 - Dijkstra's Algorithm
 
 ### 6. Dynamic Programming
+
+- Bellman Ford
+- 0/1 Knapsack Problem
