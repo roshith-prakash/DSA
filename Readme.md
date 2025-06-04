@@ -31,6 +31,7 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 
 - Binary Tree
 - Binary Search Tree (BST)
+- Red Black Tree
 - AVL Tree
 
 ### Heap
@@ -40,6 +41,11 @@ This repository contains a comprehensive set of **Data structures** and **Algori
 ### Graph
 
 - BFS / DFS
+- Adjacency List / Adjacency Matrix
+
+### Hash map / Hash Table
+
+- Hashmap
 
 ---
 

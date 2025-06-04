@@ -53,4 +53,7 @@ const values = [60, 100, 120];
 const weights = [10, 20, 30];
 const capacity = 20;
 
-console.log(fractionalKnapsack(weights, values, capacity));
+console.log(
+  `\nFor capacity ${capacity} : `,
+  fractionalKnapsack(weights, values, capacity)
+);
