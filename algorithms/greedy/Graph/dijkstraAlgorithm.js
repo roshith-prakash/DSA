@@ -9,7 +9,7 @@
 //    - Update its neighbors if a shorter path is found.
 // 4. Repeat until all shortest paths are known.
 
-// Time Complexity: O(V log V))
+// Time Complexity: O(V log V)
 
 // PriorityQueue class using a simple array and sorting for priority handling
 class PriorityQueue {

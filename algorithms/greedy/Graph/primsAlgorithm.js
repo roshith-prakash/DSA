@@ -41,7 +41,7 @@ function primMST(graph) {
   for (let neighbor in graph[startVertex]) {
     pq.enqueue(
       { from: startVertex, to: neighbor, weight: graph[startVertex][neighbor] },
-      graph[startVertex][neighbor]
+      graph[startVertex][neighbor] //weight
     );
   }
 
