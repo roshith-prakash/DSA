@@ -1,0 +1,168 @@
+public class QueueNode{
+    int val;
+    QueueNode next;
+
+    QueueNode(int value){
+        val = value;
+    }
+}
+
+class StackLL{
+    QueueNode top;
+    
+    public void push(int value){
+        QueueNode newnode = new QueueNode(value);
+
+        if(top == null){
+           top = newnode;
+        }else{
+            newnode.next = top;
+            top = newnode;
+        }
+    }
+
+    public int pop(){    
+        if(top == null){
+            return -1;
+        }
+        
+        QueueNode head = top;
+        top = top.next;
+        head.next = null;
+
+        return head.val;
+    }
+
+    public int peek(){
+        if(top == null){
+            return -1;
+        }
+
+        return top.val;
+    }
+
+    public boolean isEmpty(){
+        return top == null;
+    }
+
+    public void clear(){
+        while(top!=null){
+            this.pop();
+        }
+    }
+
+    public void displayStack(){
+       if(isEmpty()){
+            System.out.println("Stack is empty");
+            return;
+        }
+
+        QueueNode temp = top;
+
+        System.out.print("Top -> : ");
+
+        while(temp!=null){
+            System.out.print(temp.val + " ");
+            temp = temp.next;
+        }
+    }
+}
+
+class QueueLL{
+    QueueNode front;
+    QueueNode rear;
+    int size = 0;
+
+    public void enqueue(int value){
+        if(rear == null){
+            front = rear = new QueueNode(value);
+            return;
+        }
+
+        rear.next = new QueueNode(value);
+        rear = rear.next;
+        size++;
+    }
+
+    public int peek(){
+        if(front == null){
+            return -1;
+        }
+
+        return front.val;
+    }
+
+    public int dequeue(){
+        if(front == null){
+            return -1;
+        }
+
+        int value = front.val;
+        front = front.next;
+
+        if(front == null){
+            rear = null;
+        }
+
+        size--;
+
+        return value;
+    }
+
+    public void display(){
+        if(front == null){
+            System.out.println("Empty Queue.");
+        }
+
+        QueueNode temp = front;
+
+        System.out.println("");
+        while(temp != null){
+            System.out.print(temp.val + " ");
+            temp = temp.next;
+        }
+    }
+
+    public void reverse(int k){
+        StackLL stack = new StackLL();
+
+        int i = 0;
+        while(i < k){
+            stack.push(this.dequeue());
+            i++;
+        }
+
+        while(!stack.isEmpty()){
+            this.enqueue(stack.pop());
+        }
+
+        int j = size - k;
+
+        i=0;
+
+        while(i <= j){
+            this.enqueue(this.dequeue());
+            i++;
+        }
+    }
+}
+
+public class ReverseFirstKElementsQueue{
+    public static void main(String[] args) {
+        QueueLL q = new QueueLL();
+
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        q.enqueue(40);
+        q.enqueue(50);
+        q.enqueue(60);
+        q.enqueue(70);
+
+        q.display();
+
+        q.reverse(3);
+
+        q.display();
+    }
+}

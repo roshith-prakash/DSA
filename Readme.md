@@ -1,8 +1,8 @@
-# Data Structures and Algorithms in JavaScript
+# Data Structures and Algorithms in Java & JavaScript
 
 ## 🚀 What's Included
 
-This repository contains a comprehensive set of **Data structures** and **Algorithms**, implemented in JavaScript. Dive into structured coding practices while learning core computer science concepts!
+This repository contains a comprehensive set of **Data structures** and **Algorithms**, implemented in Java & JavaScript. Dive into structured coding practices while learning core computer science concepts!
 
 ---
 
